@@ -1,9 +1,11 @@
 <script>
 import Pagination from './components/Pagination.vue'
+import Product from './components/Product.vue'
 
 export default {
   components: {
     Pagination,
+    Product,
   },
   data() {
     return {}
@@ -12,6 +14,7 @@ export default {
 </script>
 
 <template>
+  <Product />
   <Pagination message="hello dotsource" number="17" />
 
   <!-- <header>
