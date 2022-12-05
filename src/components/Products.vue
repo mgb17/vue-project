@@ -5,15 +5,33 @@ export default {
   components: {
     Product,
   },
+  data() {
+    return {
+      currentPage: 1,
+      itemsPerPage: 2,
+    }
+  },
   props: {
     products: Array,
+  },
+  computed: {
+    currentProducts() {
+      return this.products.slice(
+        (this.currentPage - 1) * this.itemsPerPage,
+        this.currentPage * this.itemsPerPage,
+      )
+    },
   },
 }
 </script>
 
 <template>
   <div class="products">
-    <Product :product="product" :key="product.id" v-for="product in products" />
+    <Product
+      :product="product"
+      :key="product.id"
+      v-for="product in currentProducts"
+    />
   </div>
 </template>
 
