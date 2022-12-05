@@ -11,7 +11,7 @@ export default {
   //     return {
   //     }
   //   },
-  props: ['message', 'number'],
+  // props: ['message', 'number'],
 }
 </script>
 
