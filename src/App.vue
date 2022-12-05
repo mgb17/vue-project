@@ -1,23 +1,61 @@
 <script>
 import Pagination from './components/Pagination.vue'
-import Product from './components/Product.vue'
+import Products from './components/Products.vue'
 
 export default {
   components: {
     Pagination,
-    Product,
+    Products,
   },
   data() {
-    return {}
+    return {
+      products: [
+        {
+          id: 1,
+          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
+          variant: '2',
+          price: '64,99',
+          oldPrice: '44,95',
+          info: 'wenige',
+        },
+        {
+          id: 2,
+          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
+          variant: '2',
+          price: '64,99',
+          oldPrice: '44,95',
+          info: 'wenige',
+        },
+        {
+          id: 3,
+          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
+          variant: '2',
+          price: '64,99',
+          oldPrice: '44,95',
+          info: 'wenige',
+        },
+        {
+          id: 4,
+          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
+          variant: '2',
+          price: '64,99',
+          oldPrice: '44,95',
+          info: 'wenige',
+        },
+      ],
+    }
   },
 }
 </script>
 
 <template>
-  <Product />
+  <Products :products="products" />
   <Pagination message="hello dotsource" number="17" />
+</template>
 
-  <!-- <header>
+<style scoped></style>
+
+<!-- <header>
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <nav>
@@ -27,7 +65,4 @@ export default {
     </div>
   </header> -->
 
-  <!-- <RouterView /> -->
-</template>
-
-<style scoped></style>
+<!-- <RouterView /> -->

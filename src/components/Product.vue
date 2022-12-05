@@ -6,15 +6,10 @@ export default {
     Bookmark,
   },
   data() {
-    return {
-      product: {
-        title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
-        variant: '2',
-        price: '64,99',
-        oldPrice: '44,95',
-        info: 'wenige',
-      },
-    }
+    return {}
+  },
+  props: {
+    product: Object,
   },
 }
 </script>
@@ -66,7 +61,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  width: 25%;
+  /* width: 25%; */
   margin: 1rem;
 }
 

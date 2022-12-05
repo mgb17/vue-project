@@ -52,7 +52,6 @@ export default {
 .content {
   color: #fff;
   font-weight: 600;
-  margin: 2rem;
 }
 
 input {
@@ -70,7 +69,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15rem;
+  margin-top: 5rem;
 }
 
 div + div {
