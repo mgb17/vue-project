@@ -1,9 +1,11 @@
 <script>
 import Product from './Product.vue'
+import Pagination from './Pagination.vue'
 
 export default {
   components: {
     Product,
+    Pagination,
   },
   data() {
     return {

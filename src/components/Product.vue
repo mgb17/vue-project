@@ -109,6 +109,7 @@ export default {
   margin: 1rem 2rem 1rem 2rem;
   font-size: 1.2rem;
   word-wrap: break-word;
+  height: 40%;
 }
 
 .variant {

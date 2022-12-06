@@ -7,11 +7,17 @@ export default {
     ArrowLeft,
     ArrowRight,
   },
-  //   data() {
-  //     return {
-  //     }
-  //   },
-  // props: ['message', 'number'],
+  data() {
+    return {
+      currentPage: 1,
+    }
+  },
+  props: ['message', 'number', 'products'],
+  methods: {
+    changePage(e) {
+      this.currentPage = e.target.innerHTML
+    },
+  },
 }
 </script>
 
@@ -21,30 +27,13 @@ export default {
   <div class="container">
     <ArrowLeft />
     <div class="page-wrapper">
-      <div class="page-box">
+      <div v-for="product in products" :key="product.id" class="page-box">
         <input type="radio" id="box-1" name="number" checked />
-        <label for="box-1">1</label>
-      </div>
-      <div>...</div>
-      <div class="page-box">
-        <input type="radio" id="box-2" name="number" />
-        <label for="box-2">4</label>
-      </div>
-      <div class="page-box">
-        <input type="radio" id="box-3" name="number" />
-        <label for="box-3">5</label>
-      </div>
-      <div class="page-box">
-        <input type="radio" id="box-4" name="number" />
-        <label for="box-4">6</label>
-      </div>
-      <div>...</div>
-      <div class="page-box">
-        <input type="radio" id="box-5" name="number" />
-        <label for="box-5">7</label>
+        <label @click="changePage" id="asd" for="box-1">{{ product.id }}</label>
       </div>
     </div>
     <ArrowRight />
+    <h2>{{ currentPage }}</h2>
   </div>
 </template>
 
@@ -69,7 +58,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 div + div {
