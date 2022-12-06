@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       currentPage: 1,
+      totalPageNumber: Math.ceil(this.products.length / 2),
     }
   },
   props: ['message', 'number', 'products'],
@@ -27,9 +28,9 @@ export default {
   <div class="container">
     <ArrowLeft />
     <div class="page-wrapper">
-      <div v-for="product in products" :key="product.id" class="page-box">
+      <div v-for="item in totalPageNumber" :key="item.id" class="page-box">
         <input type="radio" id="box-1" name="number" checked />
-        <label @click="changePage" id="asd" for="box-1">{{ product.id }}</label>
+        <label @click="changePage" id="asd" for="box-1">{{ item }}</label>
       </div>
     </div>
     <ArrowRight />
