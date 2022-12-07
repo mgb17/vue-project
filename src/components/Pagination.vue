@@ -9,11 +9,11 @@ export default {
   },
   data() {
     return {
-      currentPage: 1,
       totalPageNumber: Math.ceil(this.products.length / 2),
+      currentPage: 1,
     }
   },
-  props: ['message', 'number', 'products'],
+  props: ['message', 'products'],
   methods: {
     changePage(e) {
       this.currentPage = e.target.innerHTML
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <div class="content">Message from page {{ number }} is: {{ message }}</div>
+  <div class="content">Message from pagination is: {{ message }}</div>
 
   <div class="container">
     <ArrowLeft />

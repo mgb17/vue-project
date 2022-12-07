@@ -24,6 +24,11 @@ export default {
       )
     },
   },
+  // watch: {
+  //   getProducts() {
+  //     this.currentProducts()
+  //   },
+  // },
 }
 </script>
 
@@ -35,6 +40,7 @@ export default {
       v-for="product in currentProducts"
     />
   </div>
+  <Pagination :products="products" message="hello dotSource" />
 </template>
 
 <style scoped>

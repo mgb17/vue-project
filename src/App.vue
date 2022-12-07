@@ -1,11 +1,13 @@
 <script>
 import Pagination from './components/Pagination.vue'
 import Products from './components/Products.vue'
+import Playground from './components/Playground.vue'
 
 export default {
   components: {
     Pagination,
     Products,
+    Playground,
   },
   data() {
     return {
@@ -34,7 +36,6 @@ export default {
           oldPrice: '22,95',
           info: 'mehrere',
         },
-
         {
           id: 4,
           title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
@@ -75,7 +76,7 @@ export default {
 
 <template>
   <Products :products="products" />
-  <Pagination :products="products" message="hello dotsource" number="17" />
+  <!-- <Playground /> -->
 </template>
 
 <style scoped></style>
