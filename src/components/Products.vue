@@ -9,26 +9,26 @@ export default {
   },
   data() {
     return {
-      currentPage: 1,
+      currentPageNew: '',
       itemsPerPage: 2,
     }
   },
   props: {
     products: Array,
   },
+  mounted() {
+    this.currentPageNew = this.$refs.pagination.currentPage
+    console.log(`from products: ${this.$refs.pagination.currentPage}`)
+  },
   computed: {
     currentProducts() {
       return this.products.slice(
-        (this.currentPage - 1) * this.itemsPerPage,
-        this.currentPage * this.itemsPerPage,
+        (this.currentPageNew - 1) * this.itemsPerPage,
+        this.currentPageNew * this.itemsPerPage,
       )
     },
   },
-  // watch: {
-  //   getProducts() {
-  //     this.currentProducts()
-  //   },
-  // },
+  watch: {},
 }
 </script>
 
@@ -40,7 +40,8 @@ export default {
       v-for="product in currentProducts"
     />
   </div>
-  <Pagination :products="products" message="hello dotSource" />
+
+  <Pagination ref="pagination" :products="products" message="hello dotSource" />
 </template>
 
 <style scoped>

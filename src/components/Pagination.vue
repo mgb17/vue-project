@@ -10,15 +10,26 @@ export default {
   data() {
     return {
       totalPageNumber: Math.ceil(this.products.length / 2),
-      currentPage: 1,
+      currentPage: '',
     }
   },
-  props: ['message', 'products'],
+  props: {
+    message: String,
+    products: Array,
+  },
   methods: {
     changePage(e) {
-      this.currentPage = e.target.innerHTML
+      this.currentPage = parseInt(e.target.innerHTML)
     },
   },
+  mounted() {
+    this.currentPage = 1
+    console.log(`from pagination: ${this.currentPage}`)
+  },
+  // emits: ['changePage'],
+  // created() {
+  //   this.$emit('changePage', this.currentPage)
+  // },
 }
 </script>
 
