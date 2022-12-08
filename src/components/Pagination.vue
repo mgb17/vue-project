@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       totalPageNumber: Math.ceil(this.products.length / 2),
-      currentPage: '',
+      currentPage: 4,
     }
   },
   props: {
@@ -20,12 +20,10 @@ export default {
   methods: {
     changePage(e) {
       this.currentPage = parseInt(e.target.innerHTML)
+      console.log(`from pagination: ${this.currentPage}`)
     },
   },
-  mounted() {
-    this.currentPage = 1
-    console.log(`from pagination: ${this.currentPage}`)
-  },
+  mounted() {},
   // emits: ['changePage'],
   // created() {
   //   this.$emit('changePage', this.currentPage)
@@ -45,7 +43,7 @@ export default {
       </div>
     </div>
     <ArrowRight />
-    <h2>{{ currentPage }}</h2>
+    <h2 :style="{ color: 'white' }">current page: {{ currentPage }}</h2>
   </div>
 </template>
 
