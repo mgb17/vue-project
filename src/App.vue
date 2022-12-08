@@ -76,7 +76,6 @@ export default {
 
 <template>
   <Products :products="products" />
-  <!-- <Playground /> -->
 </template>
 
 <style scoped></style>

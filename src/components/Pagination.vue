@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       totalPageNumber: Math.ceil(this.products.length / 2),
-      currentPage: 4,
+      currentPage: 1,
     }
   },
   props: {
@@ -21,6 +21,16 @@ export default {
     changePage(e) {
       this.currentPage = parseInt(e.target.innerHTML)
       console.log(`from pagination: ${this.currentPage}`)
+    },
+    previousPage() {
+      if (this.currentPage !== 1) {
+        return this.currentPage--
+      }
+    },
+    nextPage() {
+      if (this.totalPageNumber > this.currentPage) {
+        return this.currentPage++
+      }
     },
   },
   mounted() {},
@@ -35,14 +45,14 @@ export default {
   <div class="content">Message from pagination is: {{ message }}</div>
 
   <div class="container">
-    <ArrowLeft />
+    <ArrowLeft @click="previousPage" />
     <div class="page-wrapper">
       <div v-for="item in totalPageNumber" :key="item.id" class="page-box">
         <input type="radio" id="box-1" name="number" checked />
         <label @click="changePage" id="asd" for="box-1">{{ item }}</label>
       </div>
     </div>
-    <ArrowRight />
+    <ArrowRight @click="nextPage" />
     <h2 :style="{ color: 'white' }">current page: {{ currentPage }}</h2>
   </div>
 </template>
