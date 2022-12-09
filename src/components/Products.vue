@@ -9,26 +9,33 @@ export default {
   },
   data() {
     return {
-      currentPageNew: '',
+      currentPage: 2,
       itemsPerPage: 2,
+      visibleProducts: [],
     }
   },
   props: {
     products: Array,
   },
-  mounted() {
-    this.currentPageNew = this.$refs.pagination.currentPage
-    console.log(`from products: ${this.$refs.pagination.currentPage}`)
+  mounted: function () {
+    //beforeMount ?
+    this.updateVisibleProducts()
   },
-  computed: {
-    currentProducts() {
-      return this.products.slice(
-        (this.currentPageNew - 1) * this.itemsPerPage,
-        this.currentPageNew * this.itemsPerPage,
+  computed: {},
+  methods: {
+    previousPage(pageNumber) {
+      if (this.currentPage !== 1) {
+        this.currentPage--
+        this.updateVisibleProducts()
+      }
+    },
+    updateVisibleProducts() {
+      this.visibleProducts = this.products.slice(
+        (this.currentPage - 1) * this.itemsPerPage,
+        this.currentPage * this.itemsPerPage,
       )
     },
   },
-  watch: {},
 }
 </script>
 
@@ -37,11 +44,17 @@ export default {
     <Product
       :product="product"
       :key="product.id"
-      v-for="product in currentProducts"
+      v-for="product in visibleProducts"
     />
   </div>
 
-  <Pagination ref="pagination" :products="products" message="hello dotSource" />
+  <Pagination
+    @previousPage="previousPage"
+    :currentPage="currentPage"
+    ref="pagination"
+    :products="products"
+    message="hello dotSource"
+  ></Pagination>
 </template>
 
 <style scoped>

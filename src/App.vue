@@ -14,7 +14,7 @@ export default {
       products: [
         {
           id: 1,
-          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
+          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd 1st',
           variant: '2',
           price: '64,99',
           oldPrice: '44,95',
@@ -22,7 +22,7 @@ export default {
         },
         {
           id: 2,
-          title: 'Lorem asdqw ahashdasjd ',
+          title: 'Lorem asdqw ahashdasjd 2nd',
           variant: '2',
           price: '128,99',
           oldPrice: '22,95',
@@ -30,7 +30,7 @@ export default {
         },
         {
           id: 3,
-          title: 'Lorem asdqw ahashdasjd ',
+          title: 'Lorem asdqw ahashdasjd 3rd',
           variant: '2',
           price: '128,99',
           oldPrice: '22,95',
@@ -38,7 +38,7 @@ export default {
         },
         {
           id: 4,
-          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
+          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd 4th',
           variant: '2',
           price: '64,99',
           oldPrice: '44,95',
@@ -46,7 +46,7 @@ export default {
         },
         {
           id: 5,
-          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
+          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd 5th',
           variant: '2',
           price: '64,99',
           oldPrice: '44,95',
@@ -54,7 +54,7 @@ export default {
         },
         {
           id: 6,
-          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
+          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd 6th',
           variant: '2',
           price: '64,99',
           oldPrice: '44,95',
@@ -62,7 +62,7 @@ export default {
         },
         {
           id: 7,
-          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd',
+          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd 7th',
           variant: '2',
           price: '64,99',
           oldPrice: '44,95',

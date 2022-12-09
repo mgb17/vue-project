@@ -10,31 +10,30 @@ export default {
   data() {
     return {
       totalPageNumber: Math.ceil(this.products.length / 2),
-      currentPage: 1,
     }
   },
   props: {
     message: String,
     products: Array,
+    currentPage: Number,
   },
   methods: {
     changePage(e) {
       this.currentPage = parseInt(e.target.innerHTML)
-      console.log(`from pagination: ${this.currentPage}`)
+      // console.log(`from pagination: ${this.currentPage}`)
     },
-    previousPage() {
-      if (this.currentPage !== 1) {
-        return this.currentPage--
-      }
-    },
-    nextPage() {
-      if (this.totalPageNumber > this.currentPage) {
-        return this.currentPage++
-      }
+    // nextPage() {
+    //   if (this.totalPageNumber > this.currentPage) {
+    //     return this.currentPage++
+    //   }
+    // },
+    previousPage(pageNumber) {
+      this.$emit('previousPage', pageNumber)
     },
   },
+  // emits: ['pageUpdate', currentPage],
+
   mounted() {},
-  // emits: ['changePage'],
   // created() {
   //   this.$emit('changePage', this.currentPage)
   // },
@@ -45,14 +44,14 @@ export default {
   <div class="content">Message from pagination is: {{ message }}</div>
 
   <div class="container">
-    <ArrowLeft @click="previousPage" />
+    <ArrowLeft @click="previousPage()" />
     <div class="page-wrapper">
       <div v-for="item in totalPageNumber" :key="item.id" class="page-box">
         <input type="radio" id="box-1" name="number" checked />
         <label @click="changePage" id="asd" for="box-1">{{ item }}</label>
       </div>
     </div>
-    <ArrowRight @click="nextPage" />
+    <ArrowRight @click="updatePage(currentPage + 1)" />
     <h2 :style="{ color: 'white' }">current page: {{ currentPage }}</h2>
   </div>
 </template>
