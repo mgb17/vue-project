@@ -9,9 +9,10 @@ export default {
   },
   data() {
     return {
-      currentPage: 2,
+      currentPage: 1,
       itemsPerPage: 2,
       visibleProducts: [],
+      totalPageNumber: Math.ceil(this.products.length / 2),
     }
   },
   props: {
@@ -21,12 +22,29 @@ export default {
     //beforeMount ?
     this.updateVisibleProducts()
   },
-  computed: {},
+  computed: {
+    // currentPage() {
+    //   this.updateVisibleProducts()
+    // },
+  },
+  watch: {
+    currentPage() {
+      this.updateVisibleProducts()
+      // console.log(this.currentPage)
+    },
+  },
   methods: {
-    previousPage(pageNumber) {
+    changePage(a) {
+      this.currentPage = a
+    },
+    previousPage() {
       if (this.currentPage !== 1) {
         this.currentPage--
-        this.updateVisibleProducts()
+      }
+    },
+    nextPage() {
+      if (this.totalPageNumber > this.currentPage) {
+        this.currentPage++
       }
     },
     updateVisibleProducts() {
@@ -49,9 +67,11 @@ export default {
   </div>
 
   <Pagination
+    @changePage="changePage"
     @previousPage="previousPage"
+    @nextPage="nextPage"
     :currentPage="currentPage"
-    ref="pagination"
+    :totalPageNumber="totalPageNumber"
     :products="products"
     message="hello dotSource"
   ></Pagination>

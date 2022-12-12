@@ -2,12 +2,14 @@
 import Pagination from './components/Pagination.vue'
 import Products from './components/Products.vue'
 import Playground from './components/Playground.vue'
+import Search from './components/Search.vue'
 
 export default {
   components: {
     Pagination,
     Products,
     Playground,
+    Search,
   },
   data() {
     return {
@@ -19,6 +21,7 @@ export default {
           price: '64,99',
           oldPrice: '44,95',
           info: 'wenige',
+          availability: 'low',
         },
         {
           id: 2,
@@ -27,6 +30,7 @@ export default {
           price: '128,99',
           oldPrice: '22,95',
           info: 'mehrere',
+          availability: 'medium',
         },
         {
           id: 3,
@@ -35,6 +39,7 @@ export default {
           price: '128,99',
           oldPrice: '22,95',
           info: 'mehrere',
+          availability: 'high',
         },
         {
           id: 4,
@@ -43,6 +48,7 @@ export default {
           price: '64,99',
           oldPrice: '44,95',
           info: 'wenige',
+          availability: 'low',
         },
         {
           id: 5,
@@ -51,6 +57,7 @@ export default {
           price: '64,99',
           oldPrice: '44,95',
           info: 'wenige',
+          availability: 'low',
         },
         {
           id: 6,
@@ -59,6 +66,7 @@ export default {
           price: '64,99',
           oldPrice: '44,95',
           info: 'wenige',
+          availability: 'low',
         },
         {
           id: 7,
@@ -67,6 +75,7 @@ export default {
           price: '64,99',
           oldPrice: '44,95',
           info: 'wenige',
+          availability: 'low',
         },
       ],
     }
@@ -75,6 +84,7 @@ export default {
 </script>
 
 <template>
+  <!-- <Search /> -->
   <Products :products="products" />
 </template>
 

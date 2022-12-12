@@ -8,27 +8,26 @@ export default {
     ArrowRight,
   },
   data() {
-    return {
-      totalPageNumber: Math.ceil(this.products.length / 2),
-    }
+    return {}
   },
   props: {
     message: String,
     products: Array,
     currentPage: Number,
+    totalPageNumber: Number,
   },
   methods: {
     changePage(e) {
-      this.currentPage = parseInt(e.target.innerHTML)
+      // this.currentPage = parseInt(e.target.innerHTML)
       // console.log(`from pagination: ${this.currentPage}`)
+      let clickedPage = parseInt(e.target.innerHTML)
+      this.$emit('changePage', clickedPage)
     },
-    // nextPage() {
-    //   if (this.totalPageNumber > this.currentPage) {
-    //     return this.currentPage++
-    //   }
-    // },
-    previousPage(pageNumber) {
-      this.$emit('previousPage', pageNumber)
+    nextPage() {
+      this.$emit('nextPage')
+    },
+    previousPage() {
+      this.$emit('previousPage')
     },
   },
   // emits: ['pageUpdate', currentPage],
@@ -42,16 +41,21 @@ export default {
 
 <template>
   <div class="content">Message from pagination is: {{ message }}</div>
-
   <div class="container">
-    <ArrowLeft @click="previousPage()" />
+    <ArrowLeft @click="previousPage" />
     <div class="page-wrapper">
-      <div v-for="item in totalPageNumber" :key="item.id" class="page-box">
-        <input type="radio" id="box-1" name="number" checked />
-        <label @click="changePage" id="asd" for="box-1">{{ item }}</label>
+      <div
+        v-for="item in totalPageNumber"
+        @click="changePage"
+        :key="item.id"
+        class="page-box"
+      >
+        <label :class="{ green: item === currentPage }" id="" for="">
+          {{ item }}
+        </label>
       </div>
     </div>
-    <ArrowRight @click="updatePage(currentPage + 1)" />
+    <ArrowRight @click="nextPage" />
     <h2 :style="{ color: 'white' }">current page: {{ currentPage }}</h2>
   </div>
 </template>
@@ -60,11 +64,6 @@ export default {
 .content {
   color: #fff;
   font-weight: 600;
-}
-
-input {
-  position: absolute;
-  opacity: 0;
 }
 
 .arrow-left,
@@ -113,7 +112,7 @@ label {
   cursor: pointer;
 }
 
-input:checked ~ label {
+.green {
   background-color: green;
 }
 </style>
