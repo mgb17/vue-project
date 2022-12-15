@@ -30,7 +30,7 @@ export default {
       this.$emit('previousPage')
     },
   },
-  // emits: ['pageUpdate', currentPage],
+  // emits: ['nextPage', 'previousPage'],
 
   mounted() {},
   // created() {
@@ -45,13 +45,13 @@ export default {
     <ArrowLeft @click="previousPage" />
     <div class="page-wrapper">
       <div
-        v-for="item in totalPageNumber"
+        v-for="number in totalPageNumber"
         @click="changePage"
-        :key="item.id"
+        :key="number.id"
         class="page-box"
       >
-        <label :class="{ green: item === currentPage }" id="" for="">
-          {{ item }}
+        <label :class="{ green: number === currentPage }" id="" for="">
+          {{ number }}
         </label>
       </div>
     </div>

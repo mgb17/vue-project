@@ -40,7 +40,7 @@ export default {
     <div class="availability">
       <div class="info">{{ product.info }} verfügbar</div>
       <!-- add a class to bars (low, medium or high) -->
-      <div class="bars" :class="product.availability">
+      <div :class="product.availability" class="bars">
         <div class="bar"></div>
       </div>
     </div>

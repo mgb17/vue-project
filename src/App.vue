@@ -84,8 +84,8 @@ export default {
 </script>
 
 <template>
-  <!-- <Search /> -->
   <Products :products="products" />
+  <!-- <Search /> -->
 </template>
 
 <style scoped></style>
