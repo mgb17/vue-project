@@ -43,7 +43,8 @@ export default {
         },
         {
           id: 4,
-          title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd 4th',
+          title:
+            'GARDENA combisystem-Vertikutier-Boy asdasdasd GARDENA combisystem-Vertikutier-Boy asdasdasd 4th',
           variant: '2',
           price: '64,99',
           oldPrice: '44,95',

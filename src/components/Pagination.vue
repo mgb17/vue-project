@@ -11,8 +11,6 @@ export default {
     return {}
   },
   props: {
-    message: String,
-    products: Array,
     currentPage: Number,
     totalPageNumber: Number,
   },
@@ -42,7 +40,6 @@ export default {
 </script>
 
 <template>
-  <div class="content">Message from pagination is: {{ message }}</div>
   <div class="container">
     <ArrowLeft @click="previousPage" />
     <div class="page-wrapper">
@@ -52,13 +49,16 @@ export default {
         :key="number.id"
         class="page-box"
       >
-        <label :class="{ green: number === currentPage }" id="" for="">
+        <label
+          :class="{ 'primary-color': number === currentPage }"
+          id=""
+          for=""
+        >
           {{ number }}
         </label>
       </div>
     </div>
     <ArrowRight @click="nextPage" />
-    <h2 :style="{ color: 'white' }">current page: {{ currentPage }}</h2>
   </div>
 </template>
 
@@ -114,7 +114,7 @@ label {
   cursor: pointer;
 }
 
-.green {
+.primary-color {
   background-color: green;
 }
 </style>

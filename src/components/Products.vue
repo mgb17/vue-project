@@ -16,10 +16,6 @@ export default {
   props: {
     products: Array,
   },
-  // mounted: function () {
-  //   //beforeMount ?
-  //   this.updateVisibleProducts()
-  // },
   computed: {
     visibleProducts() {
       return this.products.slice(
@@ -31,14 +27,10 @@ export default {
       return Math.ceil(this.products.length / this.itemsPerPage)
     },
   },
-  watch: {
-    // currentPage() {
-    //   this.updateVisibleProducts()
-    //   // console.log(this.currentPage)
-    // },
-  },
+  watch: {},
   methods: {
     changePage(page) {
+      // if (this.currentPage !== 1 || this.totalPageNumber > this.currentPage)
       this.currentPage = page
     },
     // previousPage() {
@@ -75,15 +67,15 @@ export default {
     :currentPage="currentPage"
     :totalPageNumber="totalPageNumber"
     :products="products"
-    message="hello dotSource"
   ></Pagination>
 </template>
 
 <style scoped>
 .products {
-  display: grid;
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
+  display: flex;
+  width: 100vw;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 559px) {
