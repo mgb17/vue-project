@@ -24,13 +24,15 @@ export default {
       this.$emit('changePage', clickedPage)
     },
     nextPage() {
-      this.$emit('nextPage')
+      let page = this.currentPage + 1
+      this.$emit('changePage', page)
+      // console.log(this.currentPage++)
     },
     previousPage() {
-      this.$emit('previousPage')
+      let page = this.currentPage - 1
+      this.$emit('changePage', page)
     },
   },
-  // emits: ['nextPage', 'previousPage'],
 
   mounted() {},
   // created() {

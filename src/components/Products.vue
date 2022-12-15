@@ -11,48 +11,52 @@ export default {
     return {
       currentPage: 1,
       itemsPerPage: 2,
-      visibleProducts: [],
-      totalPageNumber: Math.ceil(this.products.length / 2),
     }
   },
   props: {
     products: Array,
   },
-  mounted: function () {
-    //beforeMount ?
-    this.updateVisibleProducts()
-  },
+  // mounted: function () {
+  //   //beforeMount ?
+  //   this.updateVisibleProducts()
+  // },
   computed: {
-    // currentPage() {
-    //   this.updateVisibleProducts()
-    // },
-  },
-  watch: {
-    currentPage() {
-      this.updateVisibleProducts()
-      // console.log(this.currentPage)
-    },
-  },
-  methods: {
-    changePage(a) {
-      this.currentPage = a
-    },
-    previousPage() {
-      if (this.currentPage !== 1) {
-        this.currentPage--
-      }
-    },
-    nextPage() {
-      if (this.totalPageNumber > this.currentPage) {
-        this.currentPage++
-      }
-    },
-    updateVisibleProducts() {
-      this.visibleProducts = this.products.slice(
+    visibleProducts() {
+      return this.products.slice(
         (this.currentPage - 1) * this.itemsPerPage,
         this.currentPage * this.itemsPerPage,
       )
     },
+    totalPageNumber() {
+      return Math.ceil(this.products.length / this.itemsPerPage)
+    },
+  },
+  watch: {
+    // currentPage() {
+    //   this.updateVisibleProducts()
+    //   // console.log(this.currentPage)
+    // },
+  },
+  methods: {
+    changePage(page) {
+      this.currentPage = page
+    },
+    // previousPage() {
+    //   if (this.currentPage !== 1) {
+    //     this.currentPage--
+    //   }
+    // },
+    // nextPage() {
+    //   if (this.totalPageNumber > this.currentPage) {
+    //     this.currentPage++
+    //   }
+    // },
+    // updateVisibleProducts() {
+    //   this.visibleProducts = this.products.slice(
+    //     (this.currentPage - 1) * this.itemsPerPage,
+    //     this.currentPage * this.itemsPerPage,
+    //   )
+    // },
   },
 }
 </script>
@@ -68,8 +72,6 @@ export default {
 
   <Pagination
     @changePage="changePage"
-    @previousPage="previousPage"
-    @nextPage="nextPage"
     :currentPage="currentPage"
     :totalPageNumber="totalPageNumber"
     :products="products"

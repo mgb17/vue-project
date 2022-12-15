@@ -21,7 +21,7 @@ export default {
           price: '64,99',
           oldPrice: '44,95',
           info: 'wenige',
-          availability: 'low',
+          availability: 'medium',
         },
         {
           id: 2,
