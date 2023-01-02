@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "noImplicitThis": true,
+      "jsx": "preserve",
+      "useDefineForClassFields": true,
+      "preserveValueImports": true,
+      "importsNotUsedAsValues": "error",
+      "strict": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "**/*.spec.ts"]
+}

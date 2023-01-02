@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
 import Bookmark from './icons/Bookmark.vue'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   components: {
     Bookmark,
   },
@@ -11,7 +12,7 @@ export default {
   props: {
     product: Object,
   },
-}
+})
 </script>
 
 <template>

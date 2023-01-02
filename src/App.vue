@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
 import Pagination from './components/Pagination.vue'
 import Products from './components/Products.vue'
 import Playground from './components/Playground.vue'
 import Search from './components/Search.vue'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   components: {
     Pagination,
     Products,
@@ -81,7 +82,7 @@ export default {
       ],
     }
   },
-}
+})
 </script>
 
 <template>

@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
 import ArrowLeft from './icons/ArrowLeft.vue'
 import ArrowRight from './icons/ArrowRight.vue'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   components: {
     ArrowLeft,
     ArrowRight,
@@ -39,7 +40,7 @@ export default {
   // created() {
   //   this.$emit('changePage', this.currentPage)
   // },
-}
+})
 </script>
 
 <template>
@@ -47,17 +48,13 @@ export default {
     <ArrowLeft @click="previousPage" />
     <div class="page-wrapper">
       <div
-        v-for="number in totalPageNumber"
+        v-for="n in totalPageNumber"
         @click="changePage"
-        :key="number.id"
+        :key="n.id"
         class="page-box"
       >
-        <label
-          :class="{ 'primary-color': number === currentPage }"
-          id=""
-          for=""
-        >
-          {{ number }}
+        <label :class="{ 'primary-color': n === currentPage }" id="" for="">
+          {{ n }}
         </label>
       </div>
     </div>

@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
 import Product from './Product.vue'
 import Pagination from './Pagination.vue'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   components: {
     Product,
     Pagination,
@@ -41,7 +42,7 @@ export default {
     //   )
     // },
   },
-}
+})
 </script>
 
 <template>
