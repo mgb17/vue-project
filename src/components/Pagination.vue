@@ -17,18 +17,21 @@ export default {
   methods: {
     changePage(e) {
       // this.currentPage = parseInt(e.target.innerHTML)
-      // console.log(`from pagination: ${this.currentPage}`)
       let clickedPage = parseInt(e.target.innerHTML)
       this.$emit('changePage', clickedPage)
     },
     nextPage() {
-      let page = this.currentPage + 1
-      this.$emit('changePage', page)
-      // console.log(this.currentPage++)
+      if (this.totalPageNumber > this.currentPage) {
+        let page = this.currentPage + 1
+        this.$emit('changePage', page)
+        // console.log(this.currentPage++)
+      }
     },
     previousPage() {
-      let page = this.currentPage - 1
-      this.$emit('changePage', page)
+      if (this.currentPage !== 1) {
+        let page = this.currentPage - 1
+        this.$emit('changePage', page)
+      }
     },
   },
 

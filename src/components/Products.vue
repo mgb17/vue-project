@@ -33,16 +33,7 @@ export default {
       // if (this.currentPage !== 1 || this.totalPageNumber > this.currentPage)
       this.currentPage = page
     },
-    // previousPage() {
-    //   if (this.currentPage !== 1) {
-    //     this.currentPage--
-    //   }
-    // },
-    // nextPage() {
-    //   if (this.totalPageNumber > this.currentPage) {
-    //     this.currentPage++
-    //   }
-    // },
+
     // updateVisibleProducts() {
     //   this.visibleProducts = this.products.slice(
     //     (this.currentPage - 1) * this.itemsPerPage,
