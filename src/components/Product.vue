@@ -1,6 +1,16 @@
 <script lang="ts">
 import Bookmark from './icons/Bookmark.vue'
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+
+interface Product {
+  title: String
+  variant: String
+  price: String
+  info: String
+  availability: String
+  oldPrice: String
+}
 
 export default defineComponent({
   components: {
@@ -10,7 +20,10 @@ export default defineComponent({
     return {}
   },
   props: {
-    product: Object,
+    product: {
+      type: Object as PropType<Product>,
+    },
+    // product: Object,
   },
 })
 </script>

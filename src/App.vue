@@ -87,19 +87,6 @@ export default defineComponent({
 
 <template>
   <Products :products="products" />
-  <!-- <Search /> -->
 </template>
 
 <style scoped></style>
-
-<!-- <header>
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header> -->
-
-<!-- <RouterView /> -->

@@ -19,19 +19,22 @@ export default defineComponent({
   },
   computed: {
     visibleProducts() {
-      return this.products.slice(
-        (this.currentPage - 1) * this.itemsPerPage,
-        this.currentPage * this.itemsPerPage,
-      )
+      if (this.products) {
+        return this.products.slice(
+          (this.currentPage - 1) * this.itemsPerPage,
+          this.currentPage * this.itemsPerPage,
+        )
+      }
     },
     totalPageNumber() {
-      return Math.ceil(this.products.length / this.itemsPerPage)
+      if (this.products) {
+        return Math.ceil(this.products.length / this.itemsPerPage)
+      }
     },
   },
   watch: {},
   methods: {
     changePage(page) {
-      // if (this.currentPage !== 1 || this.totalPageNumber > this.currentPage)
       this.currentPage = page
     },
 
