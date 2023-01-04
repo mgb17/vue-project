@@ -17,7 +17,9 @@ export default defineComponent({
     Bookmark,
   },
   data() {
-    return {}
+    return {
+      bookmarkAdded: false,
+    }
   },
   props: {
     product: {
@@ -32,7 +34,8 @@ export default defineComponent({
         price: this.product.price,
         bookmarkId: this.product.id,
       })
-      console.log(this.$store.getters['bookmarks/bookmarks'])
+      ;(this.bookmarkAdded = !this.bookmarkAdded),
+        console.log(this.$store.getters['bookmarks/bookmarks'])
     },
   },
 })
@@ -71,7 +74,10 @@ export default defineComponent({
       </div>
       <div class="buttons">
         <button class="bookmark">
-          <Bookmark @click="addBookmark" />
+          <Bookmark
+            @click="addBookmark"
+            :class="{ 'primary-color': bookmarkAdded }"
+          />
         </button>
         <button class="buy">kaufen</button>
       </div>
@@ -80,6 +86,9 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
+.primary-color {
+  color: green;
+}
 .container-wrapper {
   margin: 1rem;
   display: flex;
@@ -253,7 +262,6 @@ export default defineComponent({
         width: 33%;
         border: none;
         cursor: pointer;
-        color: gray;
       }
 
       .buy {
