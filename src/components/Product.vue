@@ -25,6 +25,16 @@ export default defineComponent({
     },
     // product: Object,
   },
+  methods: {
+    addBookmark() {
+      this.$store.dispatch('bookmarks/addBookmark', {
+        title: this.product.title,
+        price: this.product.price,
+        bookmarkId: this.product.id,
+      })
+      console.log(this.$store.getters['bookmarks/bookmarks'])
+    },
+  },
 })
 </script>
 
@@ -61,7 +71,7 @@ export default defineComponent({
       </div>
       <div class="buttons">
         <button class="bookmark">
-          <Bookmark />
+          <Bookmark @click="addBookmark" />
         </button>
         <button class="buy">kaufen</button>
       </div>

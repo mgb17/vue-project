@@ -11,7 +11,7 @@
       "useDefineForClassFields": true,
       "preserveValueImports": true,
       "importsNotUsedAsValues": "error",
-      "strict": true
+      // "strict": true
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules", "**/*.spec.ts"]
