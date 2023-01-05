@@ -1,5 +1,5 @@
 export default {
-    addBookmark(context, data) {
+    toggleBookmark(context, data) {
         const bookmarkData = {
             productTitle: data.title,
             productPrice: data.price
@@ -7,6 +7,6 @@ export default {
 
         bookmarkData.id = data.bookmarkId
 
-        context.commit('addBookmark', bookmarkData);
-    }
+        context.commit('toggleBookmark', bookmarkData);
+    },
 }

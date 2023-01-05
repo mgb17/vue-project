@@ -28,8 +28,8 @@ export default defineComponent({
     // product: Object,
   },
   methods: {
-    addBookmark() {
-      this.$store.dispatch('bookmarks/addBookmark', {
+    toggleBookmark() {
+      this.$store.dispatch('bookmarks/toggleBookmark', {
         title: this.product.title,
         price: this.product.price,
         bookmarkId: this.product.id,
@@ -75,7 +75,7 @@ export default defineComponent({
       <div class="buttons">
         <button class="bookmark">
           <Bookmark
-            @click="addBookmark"
+            @click="toggleBookmark"
             :class="{ 'primary-color': bookmarkAdded }"
           />
         </button>
