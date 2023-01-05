@@ -2,15 +2,7 @@
 import Bookmark from './icons/Bookmark.vue'
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-
-interface Product {
-  title: String
-  variant: String
-  price: String
-  info: String
-  availability: String
-  oldPrice: String
-}
+import { Product } from '../interface'
 
 export default defineComponent({
   components: {
@@ -24,15 +16,15 @@ export default defineComponent({
   props: {
     product: {
       type: Object as PropType<Product>,
+      default: {},
     },
-    // product: Object,
   },
   methods: {
     toggleBookmark() {
       this.$store.dispatch('bookmarks/toggleBookmark', {
         title: this.product.title,
         price: this.product.price,
-        bookmarkId: this.product.id,
+        code: this.product.code,
       })
       ;(this.bookmarkAdded = !this.bookmarkAdded),
         console.log(this.$store.getters['bookmarks/bookmarks'])

@@ -1,17 +1,17 @@
 {
     "compilerOptions": {
-      "target": "esnext",
-      "module": "esnext",
+      "target": "ES6",
+      "module": "ES2020",
       "moduleResolution": "node",
       "importHelpers": true,
-      "isolatedModules": true,
-      "noEmit": true,
       "noImplicitThis": true,
-      "jsx": "preserve",
       "useDefineForClassFields": true,
-      "preserveValueImports": true,
-      "importsNotUsedAsValues": "error",
-      // "strict": true
+      "strict": true
+      // "isolatedModules": true,
+      // "noEmit": true,
+      // "jsx": "preserve",
+      // "preserveValueImports": true,
+      // "importsNotUsedAsValues": "error",
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules", "**/*.spec.ts"]

@@ -34,7 +34,7 @@ export default defineComponent({
   },
   watch: {},
   methods: {
-    changePage(page) {
+    changePage(page: Number) {
       this.currentPage = page
     },
 
