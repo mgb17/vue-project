@@ -19,11 +19,7 @@ export default defineComponent({
     }
   },
   props: {
-    // products: Array,
-    products: {
-      type: Array,
-      default: [],
-    },
+    products: Object,
   },
   computed: {
     visibleProducts() {
@@ -58,7 +54,7 @@ export default defineComponent({
 
 <template>
   <div class="products">
-    <Product :product="n" :key="n.code" v-for="n in visibleProducts" />
+    <Product :product="item" :key="item.code" v-for="item in visibleProducts" />
   </div>
 
   <Pagination

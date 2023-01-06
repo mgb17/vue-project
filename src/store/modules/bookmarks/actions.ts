@@ -1,21 +1,13 @@
-import { Product } from '../../../interface'
+// import { Product } from '../../../interface'
 
 export default {
-    toggleBookmark(context: Object, data:Product) {
+    toggleBookmark(context, data) {
         const bookmarkData = {
-            productTitle: data.title,
-            productPrice: data.price,
-            code: data.code
+            productTitle: data.product.title,
+            productPrice: data.product.price,
+            code: data.product.code
         };
 
-
-        // const actions = {
-        //     toggleBookmark ({commit}): none {
-        //       commit('toggleBookmark')
-        //     },
-        // }
-
         context.commit('toggleBookmark', bookmarkData);
-
     },
 }

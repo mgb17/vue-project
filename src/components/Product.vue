@@ -22,9 +22,7 @@ export default defineComponent({
   methods: {
     toggleBookmark() {
       this.$store.dispatch('bookmarks/toggleBookmark', {
-        title: this.product.title,
-        price: this.product.price,
-        code: this.product.code,
+        product: this.product,
       })
       ;(this.bookmarkAdded = !this.bookmarkAdded),
         console.log(this.$store.getters['bookmarks/bookmarks'])
