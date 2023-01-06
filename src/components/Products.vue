@@ -11,11 +11,19 @@ export default defineComponent({
   data() {
     return {
       currentPage: 1,
+      // currentPage: {
+      //   type: Number,
+      //   default: 2,
+      // },
       itemsPerPage: 2,
     }
   },
   props: {
-    products: Array,
+    // products: Array,
+    products: {
+      type: Array,
+      default: [],
+    },
   },
   computed: {
     visibleProducts() {
@@ -32,12 +40,12 @@ export default defineComponent({
       }
     },
   },
+  created() {},
   watch: {},
   methods: {
-    changePage(page: Number) {
+    changePage(page: number) {
       this.currentPage = page
     },
-
     // updateVisibleProducts() {
     //   this.visibleProducts = this.products.slice(
     //     (this.currentPage - 1) * this.itemsPerPage,
@@ -50,11 +58,7 @@ export default defineComponent({
 
 <template>
   <div class="products">
-    <Product
-      :product="product"
-      :key="product.id"
-      v-for="product in visibleProducts"
-    />
+    <Product :product="n" :key="n.code" v-for="n in visibleProducts" />
   </div>
 
   <Pagination

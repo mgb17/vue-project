@@ -2,11 +2,6 @@
 import ArrowLeft from './icons/ArrowLeft.vue'
 import ArrowRight from './icons/ArrowRight.vue'
 import { defineComponent } from 'vue'
-// import type { PropType } from 'vue'
-
-// interface totalPageNumber {
-//   id: Number
-// }
 
 export default defineComponent({
   components: {
@@ -18,14 +13,14 @@ export default defineComponent({
   },
   props: {
     currentPage: Number,
-    totalPageNumber: Number,
-    // totalPageNumber: {
-    //   type: Number as PropType<totalPageNumber>,
+    // currentPage: {
+    //   type: Number,
+    //   default: 3,
     // },
+    totalPageNumber: Number,
   },
   methods: {
     changePage(e) {
-      // this.currentPage = parseInt(e.target.innerHTML)
       let clickedPage = parseInt(e.target.innerHTML)
       this.$emit('changePage', clickedPage)
     },
@@ -38,7 +33,6 @@ export default defineComponent({
       ) {
         let page = this.currentPage + 1
         this.$emit('changePage', page)
-        // console.log(this.currentPage++)
       }
     },
     previousPage() {
@@ -50,9 +44,6 @@ export default defineComponent({
   },
 
   mounted() {},
-  // created() {
-  //   this.$emit('changePage', this.currentPage)
-  // },
 })
 </script>
 

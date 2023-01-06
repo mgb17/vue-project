@@ -9,6 +9,7 @@ interface Product {
     code: Number
   }
 
+
   export {
-    Product
+    Product,
   }

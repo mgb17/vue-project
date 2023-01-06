@@ -6,6 +6,7 @@
       "importHelpers": true,
       "noImplicitThis": true,
       "useDefineForClassFields": true,
+      "noImplicitAny": false, 
       "strict": true
       // "isolatedModules": true,
       // "noEmit": true,

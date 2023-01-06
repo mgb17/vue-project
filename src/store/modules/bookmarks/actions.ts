@@ -9,6 +9,13 @@ export default {
         };
 
 
+        // const actions = {
+        //     toggleBookmark ({commit}): none {
+        //       commit('toggleBookmark')
+        //     },
+        // }
+
         context.commit('toggleBookmark', bookmarkData);
+
     },
 }
