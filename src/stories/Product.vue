@@ -11,19 +11,22 @@ export default defineComponent({
   },
   data() {
     return {
+      bookmarks: [],
       bookmarkAdded: false,
+      code: 1,
     }
   },
   props: {
-    product: {
-      type: Object as PropType<Product>,
-      default: {},
-    },
-    availability: {
+    // product: {
+    //   type: Object as PropType<Product>,
+    //   default: {},
+    // },
+
+    title: {
       type: String,
       required: true,
     },
-    title: {
+    availability: {
       type: String,
       required: true,
     },
@@ -32,11 +35,11 @@ export default defineComponent({
       required: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
     },
     oldPrice: {
-      type: String,
+      type: Number,
       required: true,
     },
     info: {
@@ -50,66 +53,85 @@ export default defineComponent({
   //   },
   methods: {
     toggleBookmark() {
-      this.$store.dispatch('bookmarks/toggleBookmark', {
-        product: this.product,
-      })
-      ;(this.bookmarkAdded = !this.bookmarkAdded),
-        console.log(this.$store.getters['bookmarks/bookmarks'])
+      this.bookmarkAdded = !this.bookmarkAdded
+
+      let check = this.bookmarks.some((el) => el.code === this.code)
+
+      if (!check) {
+        this.bookmarks.push({
+          title: this.title,
+          price: this.price,
+          code: this.code,
+        })
+      } else {
+        this.bookmarks.pop({
+          title: this.title,
+          price: this.price,
+          code: this.code,
+        })
+      }
+      console.log(this.bookmarks)
     },
   },
 })
 </script>
 
 <template>
-  <div class="container-wrapper">
-    <div class="container">
-      <div class="image-wrapper">
-        <img
-          class="first-image"
-          src="https://res.cloudinary.com/baywa-ag-p/image/upload/A2542940.jpg"
-          alt=""
-        />
-      </div>
-      <span class="ribbon">Angebot</span>
-      <div class="divider"></div>
-      <div class="title-wrapper">
-        <h4 class="title">{{ title }}</h4>
-        <div class="variant">{{ variant }} Varianten verfügbar</div>
-      </div>
-
-      <div class="price">
-        <div class="old-price-wrapper">
-          <span class="old-price">{{ oldPrice }} €</span>
-        </div>
-        {{ price }} € / Stück
-      </div>
-
-      <div class="availability">
-        <div class="info">{{ info }} verfügbar</div>
-        <!-- add a class to bars (low, medium or high) -->
-        <div :class="product.availability" class="bars">
-          <div class="bar"></div>
-        </div>
-      </div>
-      <div class="buttons">
-        <button class="bookmark">
-          <Bookmark
-            @click="toggleBookmark"
-            :class="{ 'primary-color': bookmarkAdded }"
+  <div class="page">
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="image-wrapper">
+          <img
+            class="first-image"
+            src="https://res.cloudinary.com/baywa-ag-p/image/upload/A2542940.jpg"
+            alt=""
           />
-        </button>
-        <button class="buy">kaufen</button>
+        </div>
+        <span class="ribbon">Angebot</span>
+        <div class="divider"></div>
+        <div class="title-wrapper">
+          <h4 class="title">{{ title }}</h4>
+          <div class="variant">{{ variant }} Varianten verfügbar</div>
+        </div>
+
+        <div class="price">
+          <div class="old-price-wrapper">
+            <span class="old-price">{{ oldPrice }} €</span>
+          </div>
+          {{ price }} € / Stück
+        </div>
+
+        <div class="availability">
+          <div class="info">{{ info }} verfügbar</div>
+          <!-- add a class to bars (low, medium or high) -->
+          <div :class="availability" class="bars">
+            <div class="bar"></div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="bookmark">
+            <Bookmark
+              @click="toggleBookmark"
+              :class="{ 'primary-color': bookmarkAdded }"
+            />
+          </button>
+          <button class="buy">kaufen</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.page {
+  background-color: lightgray;
+}
 .primary-color {
   color: green;
 }
 .container-wrapper {
-  margin: 1rem;
+  padding: 1rem;
+  //   margin: 1rem;
   display: flex;
   width: 330px;
 

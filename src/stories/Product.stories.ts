@@ -24,4 +24,8 @@ const Template = (args) => ({
 
   Single.args = {
     title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd 1st',
+    variant: 2,
+    price: 123,
+    oldPrice: 456,
+    info: 'wenige',
 };
