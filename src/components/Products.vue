@@ -18,10 +18,13 @@ export default defineComponent({
       itemsPerPage: 2,
     }
   },
-  props: {
-    products: Object,
-  },
+  // props: {
+  //   products: Object,
+  // },
   computed: {
+    products() {
+      return this.$store.getters['products/products']
+    },
     visibleProducts() {
       if (this.products) {
         return this.products.slice(
@@ -42,12 +45,6 @@ export default defineComponent({
     changePage(page: number) {
       this.currentPage = page
     },
-    // updateVisibleProducts() {
-    //   this.visibleProducts = this.products.slice(
-    //     (this.currentPage - 1) * this.itemsPerPage,
-    //     this.currentPage * this.itemsPerPage,
-    //   )
-    // },
   },
 })
 </script>
@@ -55,6 +52,12 @@ export default defineComponent({
 <template>
   <div class="products">
     <Product :product="item" :key="item.code" v-for="item in visibleProducts" />
+  </div>
+
+  <div class="wish-list">
+    <router-link to="/favorites">
+      <button>Favorites</button>
+    </router-link>
   </div>
 
   <Pagination
@@ -65,12 +68,26 @@ export default defineComponent({
   ></Pagination>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .products {
   display: flex;
   width: 100vw;
   align-items: stretch;
   flex-wrap: wrap;
+}
+
+.wish-list {
+  margin: 1rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  button {
+    background-color: darkred;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    color: #fff;
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 559px) {

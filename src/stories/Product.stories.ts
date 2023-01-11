@@ -1,18 +1,20 @@
 import MyProduct from './Product.vue';
+import { Meta, StoryFn } from '@storybook/vue3'
+
 
 export default {
     title: 'Product',
     component: MyProduct,
     argTypes: {
-      onClick: {},
-      availability: {
-        control: { type: 'select' },
-        options: ['low', 'medium', 'high'],
-      },
+      // onClick: {},
+      // availability: {
+      //   control: { type: 'select' },
+      //   options: ['low', 'medium', 'high'],
+      // },
     },
-};
+} as Meta<typeof MyProduct>;
 
-const Template = (args) => ({
+const Template: StoryFn<typeof MyProduct> = (args) => ({
     components: { MyProduct },
     setup() {
       return { args };
@@ -23,9 +25,14 @@ const Template = (args) => ({
   export const Single = Template.bind({});
 
   Single.args = {
-    title: 'GARDENA combisystem-Vertikutier-Boy asdasdasd 1st',
-    variant: 2,
-    price: 123,
-    oldPrice: 456,
-    info: 'wenige',
+    product: {
+      title: 'Sample Product 1st',
+      variant: 2,
+      availability: '',
+      price: 123,
+      oldPrice: 456,
+      info: 'wenige',
+      code: 1,
+    },
+    
 };

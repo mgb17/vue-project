@@ -13,7 +13,9 @@ export default defineComponent({
   },
   props: {
     currentPage: Number,
-    totalPageNumber: Number,
+    totalPageNumber: {
+      type: Number,
+    },
   },
   methods: {
     changePage(e) {

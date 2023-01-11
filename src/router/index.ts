@@ -1,14 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import App from '../App.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
       name: 'home',
-      component: App,
+      component: () => import('../components/Products.vue'),
     },
+    {
+      path: '/favorites',
+      name: 'favorites',
+      component: () => import('../components/Bookmarks.vue'),
+    }
     // {
     //   path: '/about',
     //   name: 'about',

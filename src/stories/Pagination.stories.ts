@@ -1,18 +1,16 @@
 import MyPagination from './Pagination.vue';
+import { Meta, StoryFn } from '@storybook/vue3'
+
 
 export default {
     title: 'Pagination',
     component: MyPagination,
     argTypes: {
       onClick: {},
-      availability: {
-        control: { type: 'select' },
-        options: ['low', 'medium', 'high'],
-      },
     },
-};
+} as Meta<typeof MyPagination>;
 
-const Template = (args) => ({
+const Template: StoryFn<typeof MyPagination> = (args) => ({
     components: { MyPagination },
     setup() {
       return { args };
@@ -22,7 +20,7 @@ const Template = (args) => ({
 
   export const Pages = Template.bind({});
 
-//   Pages.args = {
-//     totalPageNumber: 4,
-//     currentPage: 1,
-// };
+  Pages.args = {
+    totalPageNumber: 4,
+    currentPage: 1,
+};

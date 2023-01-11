@@ -6,7 +6,8 @@ export default {
         if(!check) {
             state.bookmarks.push(payload)
         } else {
-            state.bookmarks.pop(payload)
+            const index = state.bookmarks.findIndex(el => el.code === payload.code)
+            state.bookmarks.splice(index, 1)
         }
     },
 };

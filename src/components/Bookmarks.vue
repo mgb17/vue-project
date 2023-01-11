@@ -1,10 +1,7 @@
 <script lang="ts">
 import Bookmark from './icons/Bookmark.vue'
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
-import { Product } from '../interface'
 
-export default defineComponent({
+export default {
   components: {
     Bookmark,
   },
@@ -13,69 +10,92 @@ export default defineComponent({
       bookmarkAdded: false,
     }
   },
-  props: {
-    product: {
-      type: Object as PropType<Product>,
-      default: {},
+  computed: {
+    bookmarks() {
+      return this.$store.getters['bookmarks/bookmarks']
     },
   },
   methods: {
-    toggleBookmark() {
-      this.$store.dispatch('bookmarks/toggleBookmark', {
-        product: this.product,
+    editBookmark() {
+      this.$store.dispatch('bookmarks/editBookmark', {
+        // bookmark: this.bookmark,
       })
       ;(this.bookmarkAdded = !this.bookmarkAdded),
         console.log(this.$store.getters['bookmarks/bookmarks'])
     },
   },
-})
+}
 </script>
 
 <template>
-  <div class="container-wrapper">
-    <div class="container">
-      <div class="image-wrapper">
-        <img
-          class="first-image"
-          src="https://res.cloudinary.com/baywa-ag-p/image/upload/A2542940.jpg"
-          alt=""
-        />
-      </div>
-      <span class="ribbon">Angebot</span>
-      <div class="divider"></div>
-      <div class="title-wrapper">
-        <h4 class="title">{{ product.title }}</h4>
-        <div class="variant">{{ product.variant }} Varianten verfügbar</div>
-      </div>
+  <div class="">
+    <router-link to="/" class="home">
+      <button>Home</button>
+    </router-link>
+    <div class="bookmarks">
+      <div v-for="bookmark in bookmarks">
+        <div class="container-wrapper">
+          <div class="container">
+            <div class="image-wrapper">
+              <img
+                class="first-image"
+                src="https://res.cloudinary.com/baywa-ag-p/image/upload/A2542940.jpg"
+                alt=""
+              />
+            </div>
+            <span class="ribbon">Angebot</span>
+            <div class="divider"></div>
+            <div class="title-wrapper">
+              <h4 class="title">{{ bookmark.title }}</h4>
+              <!-- <div class="variant">
+                  {{ product.variant }} Varianten verfügbar
+                </div> -->
+            </div>
 
-      <div class="price">
-        <div class="old-price-wrapper">
-          <span class="old-price">{{ product.oldPrice }} €</span>
-        </div>
-        {{ product.price }} € / Stück
-      </div>
+            <div class="price">
+              <div class="old-price-wrapper">
+                <span class="old-price">{{ bookmark.oldPrice }} €</span>
+              </div>
+              {{ bookmark.price }} € / Stück
+            </div>
 
-      <div class="availability">
-        <div class="info">{{ product.info }} verfügbar</div>
-        <!-- add a class to bars (low, medium or high) -->
-        <div :class="product.availability" class="bars">
-          <div class="bar"></div>
+            <div class="availability">
+              <!-- <div class="info">{{ product.info }} verfügbar</div> -->
+              <!-- add a class to bars (low, medium or high) -->
+              <!-- <div :class="product.availability" class="bars">
+                  <div class="bar"></div>
+                </div> -->
+            </div>
+            <div class="buttons">
+              <button class="bookmark">
+                <Bookmark
+                  @click="editBookmark"
+                  :class="{ 'primary-color': bookmarkAdded }"
+                />
+              </button>
+              <button class="buy">kaufen</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="buttons">
-        <button class="bookmark">
-          <Bookmark
-            @click="toggleBookmark"
-            :class="{ 'primary-color': bookmarkAdded }"
-          />
-        </button>
-        <button class="buy">kaufen</button>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.home {
+  margin: 1rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  button {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background-color: darkred;
+    color: #fff;
+    cursor: pointer;
+  }
+}
 .primary-color {
   color: green;
 }
@@ -262,6 +282,37 @@ export default defineComponent({
         cursor: pointer;
       }
     }
+  }
+}
+
+.bookmarks {
+  display: flex;
+  width: 100vw;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 559px) {
+  .bookmarks {
+    grid-template-columns: 100%;
+  }
+}
+
+@media (min-width: 560px) {
+  .bookmarks {
+    grid-template-columns: repeat(2, 49.5%);
+  }
+}
+
+@media (min-width: 768px) {
+  .bookmarks {
+    grid-template-columns: repeat(3, 32.5%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bookmarks {
+    grid-template-columns: repeat(4, 24.2%);
   }
 }
 </style>

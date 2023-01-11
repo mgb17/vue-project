@@ -3,7 +3,6 @@ import Bookmark from '../components/icons/Bookmark.vue'
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import { Product } from '../interface'
-import { reactive, computed } from 'vue'
 
 export default defineComponent({
   components: {
@@ -11,38 +10,15 @@ export default defineComponent({
   },
   data() {
     return {
-      bookmarks: [],
       bookmarkAdded: false,
-      code: 1,
     }
   },
   props: {
-    // product: {
-    //   type: Object as PropType<Product>,
-    //   default: {},
-    // },
-
-    title: {
-      type: String,
-      required: true,
+    product: {
+      type: Object as PropType<Product>,
+      default: {},
     },
     availability: {
-      type: String,
-      required: true,
-    },
-    variant: {
-      type: Number,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    oldPrice: {
-      type: Number,
-      required: true,
-    },
-    info: {
       type: String,
       required: true,
     },
@@ -52,26 +28,20 @@ export default defineComponent({
   //     return {}
   //   },
   methods: {
-    toggleBookmark() {
-      this.bookmarkAdded = !this.bookmarkAdded
-
-      let check = this.bookmarks.some((el) => el.code === this.code)
-
-      if (!check) {
-        this.bookmarks.push({
-          title: this.title,
-          price: this.price,
-          code: this.code,
-        })
-      } else {
-        this.bookmarks.pop({
-          title: this.title,
-          price: this.price,
-          code: this.code,
-        })
-      }
-      console.log(this.bookmarks)
-    },
+    // toggleBookmark() {
+    //   this.bookmarkAdded = !this.bookmarkAdded
+    //   let check = this.bookmarks.some((el) => el.code === this.product.code)
+    //   if (!check) {
+    //     this.bookmarks.push({
+    //       title: this.product.title,
+    //       price: this.product.price,
+    //       code: this.product.code,
+    //     })
+    //   } else {
+    //     this.bookmarks.pop()
+    //   }
+    //   console.log(this.bookmarks)
+    // },
   },
 })
 </script>
@@ -90,21 +60,21 @@ export default defineComponent({
         <span class="ribbon">Angebot</span>
         <div class="divider"></div>
         <div class="title-wrapper">
-          <h4 class="title">{{ title }}</h4>
-          <div class="variant">{{ variant }} Varianten verfügbar</div>
+          <h4 class="title">{{ product.title }}</h4>
+          <div class="variant">{{ product.variant }} Varianten verfügbar</div>
         </div>
 
         <div class="price">
           <div class="old-price-wrapper">
-            <span class="old-price">{{ oldPrice }} €</span>
+            <span class="old-price">{{ product.oldPrice }} €</span>
           </div>
-          {{ price }} € / Stück
+          {{ product.price }} € / Stück
         </div>
 
         <div class="availability">
-          <div class="info">{{ info }} verfügbar</div>
+          <div class="info">{{ product.info }} verfügbar</div>
           <!-- add a class to bars (low, medium or high) -->
-          <div :class="availability" class="bars">
+          <div :class="product.availability" class="bars">
             <div class="bar"></div>
           </div>
         </div>
@@ -198,7 +168,7 @@ export default defineComponent({
       }
 
       .variant {
-        margin: 1rem 2rem 0 2rem;
+        margin: 1rem 2rem 1rem 2rem;
         background-color: lightgray;
         color: gray;
         padding: 0.25rem 2rem 0.25rem 0.25rem;
