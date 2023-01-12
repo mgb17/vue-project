@@ -17,6 +17,10 @@ export default defineComponent({
     product: {
       type: Object as PropType<Product>,
       default: {},
+      // price: {
+      //   type: Number,
+      //   default: {},
+      // },
     },
     // availability: {
     //   type: String,
@@ -28,20 +32,20 @@ export default defineComponent({
   //     return {}
   //   },
   methods: {
-    // toggleBookmark() {
-    //   this.bookmarkAdded = !this.bookmarkAdded
-    //   let check = this.bookmarks.some((el) => el.code === this.product.code)
-    //   if (!check) {
-    //     this.bookmarks.push({
-    //       title: this.product.title,
-    //       price: this.product.price,
-    //       code: this.product.code,
-    //     })
-    //   } else {
-    //     this.bookmarks.pop()
-    //   }
-    //   console.log(this.bookmarks)
-    // },
+    toggleBookmark() {
+      this.bookmarkAdded = !this.bookmarkAdded
+      // let check = this.bookmarks.some((el) => el.code === this.product.code)
+      // if (!check) {
+      //   this.bookmarks.push({
+      //     title: this.product.title,
+      //     price: this.product.price,
+      //     code: this.product.code,
+      //   })
+      // } else {
+      //   this.bookmarks.pop()
+      // }
+      // console.log(this.bookmarks)
+    },
   },
 })
 </script>
@@ -80,7 +84,10 @@ export default defineComponent({
         </div>
         <div class="buttons">
           <button class="bookmark">
-            <Bookmark :class="{ 'primary-color': bookmarkAdded }" />
+            <Bookmark
+              @click="toggleBookmark"
+              :class="{ 'primary-color': bookmarkAdded }"
+            />
           </button>
           <button class="buy">kaufen</button>
         </div>

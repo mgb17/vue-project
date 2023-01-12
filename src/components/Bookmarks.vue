@@ -1,9 +1,11 @@
 <script lang="ts">
 import Bookmark from './icons/Bookmark.vue'
+import Product from './Product.vue'
 
 export default {
   components: {
     Bookmark,
+    Product,
   },
   data() {
     return {
@@ -16,9 +18,9 @@ export default {
     },
   },
   methods: {
-    editBookmark() {
+    editBookmark(product) {
       this.$store.dispatch('bookmarks/editBookmark', {
-        // bookmark: this.bookmark,
+        product: product,
       })
       ;(this.bookmarkAdded = !this.bookmarkAdded),
         console.log(this.$store.getters['bookmarks/bookmarks'])
@@ -39,8 +41,9 @@ export default {
       <h3>There is no item in your wish list!</h3>
     </div>
     <div class="bookmarks">
-      <div v-for="bookmark in bookmarks">
-        <div class="container-wrapper">
+      <div v-for="product in bookmarks">
+        <Product :product="product"></Product>
+        <!-- <div class="container-wrapper">
           <div class="container">
             <div class="image-wrapper">
               <img
@@ -53,9 +56,9 @@ export default {
             <div class="divider"></div>
             <div class="title-wrapper">
               <h4 class="title">{{ bookmark.title }}</h4>
-              <!-- <div class="variant">
+              <div class="variant">
                   {{ product.variant }} Varianten verfügbar
-                </div> -->
+                </div>
             </div>
 
             <div class="price">
@@ -66,23 +69,18 @@ export default {
             </div>
 
             <div class="availability">
-              <!-- <div class="info">{{ product.info }} verfügbar</div> -->
-              <!-- add a class to bars (low, medium or high) -->
-              <!-- <div :class="product.availability" class="bars">
-                  <div class="bar"></div>
-                </div> -->
             </div>
             <div class="buttons">
               <button class="bookmark">
                 <Bookmark
-                  @click="editBookmark"
+                  @click="editBookmark(product)"
                   :class="{ 'primary-color': bookmarkAdded }"
                 />
               </button>
               <button class="buy">kaufen</button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -15,7 +15,7 @@ export default defineComponent({
       //   type: Number,
       //   default: 2,
       // },
-      itemsPerPage: 2,
+      itemsPerPage: 4,
     }
   },
   // props: {

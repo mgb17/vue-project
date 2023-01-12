@@ -20,7 +20,7 @@ export default defineComponent({
     totalPageNumber: Number,
   },
   methods: {
-    changePage(e) {
+    changePage(e: HTMLDivElement) {
       let clickedPage = parseInt(e.target.innerHTML)
       this.$emit('changePage', clickedPage)
     },

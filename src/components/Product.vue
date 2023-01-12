@@ -10,7 +10,7 @@ export default defineComponent({
   },
   data() {
     return {
-      bookmarkAdded: false,
+      bookmarkAdded: false, //computed!!
     }
   },
   props: {
