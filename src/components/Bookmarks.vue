@@ -8,9 +8,7 @@ export default {
     Product,
   },
   data() {
-    return {
-      bookmarkAdded: false,
-    }
+    return {}
   },
   computed: {
     bookmarks() {
@@ -18,13 +16,13 @@ export default {
     },
   },
   methods: {
-    editBookmark(product) {
-      this.$store.dispatch('bookmarks/editBookmark', {
-        product: product,
-      })
-      ;(this.bookmarkAdded = !this.bookmarkAdded),
-        console.log(this.$store.getters['bookmarks/bookmarks'])
-    },
+    // editBookmark(product) {
+    //   this.$store.dispatch('bookmarks/editBookmark', {
+    //     product: product,
+    //   })
+    //   ;(this.bookmarkAdded = !this.bookmarkAdded),
+    //     console.log(this.$store.getters['bookmarks/bookmarks'])
+    // },
   },
 }
 </script>

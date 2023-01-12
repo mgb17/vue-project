@@ -70,8 +70,9 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .products {
-  display: flex;
-  width: 100vw;
+  display: grid;
+  width: 100%;
+  max-width: 1440px;
   align-items: stretch;
   flex-wrap: wrap;
 }
@@ -98,19 +99,19 @@ export default defineComponent({
 
 @media (min-width: 560px) {
   .products {
-    grid-template-columns: repeat(2, 49.5%);
+    grid-template-columns: repeat(2, 50%);
   }
 }
 
 @media (min-width: 768px) {
   .products {
-    grid-template-columns: repeat(3, 32.5%);
+    grid-template-columns: repeat(3, 33%);
   }
 }
 
 @media (min-width: 1024px) {
   .products {
-    grid-template-columns: repeat(4, 24.2%);
+    grid-template-columns: repeat(4, 25%);
   }
 }
 </style>

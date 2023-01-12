@@ -10,8 +10,13 @@ export default defineComponent({
   },
   data() {
     return {
-      bookmarkAdded: false, //computed!!
+      bookmarkAdded: Boolean,
     }
+  },
+  computed: {
+    bookmarkAdded() {
+      return this.bookmarkAdded
+    },
   },
   props: {
     product: {
@@ -82,7 +87,6 @@ export default defineComponent({
 .container-wrapper {
   margin: 1rem;
   display: flex;
-  width: 330px;
 
   .container {
     background-color: #fff;
