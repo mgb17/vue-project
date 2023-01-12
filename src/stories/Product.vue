@@ -18,10 +18,10 @@ export default defineComponent({
       type: Object as PropType<Product>,
       default: {},
     },
-    availability: {
-      type: String,
-      required: true,
-    },
+    // availability: {
+    //   type: String,
+    //   required: true,
+    // },
   },
   //   setup(props) {
   //     props = reactive(props)
@@ -80,10 +80,7 @@ export default defineComponent({
         </div>
         <div class="buttons">
           <button class="bookmark">
-            <Bookmark
-              @click="toggleBookmark"
-              :class="{ 'primary-color': bookmarkAdded }"
-            />
+            <Bookmark :class="{ 'primary-color': bookmarkAdded }" />
           </button>
           <button class="buy">kaufen</button>
         </div>

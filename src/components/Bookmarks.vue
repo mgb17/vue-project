@@ -32,6 +32,12 @@ export default {
     <router-link to="/" class="home">
       <button>Home</button>
     </router-link>
+    <div class="title">
+      <h2>Wish List</h2>
+    </div>
+    <div v-show="!bookmarks.length" class="title">
+      <h3>There is no item in your wish list!</h3>
+    </div>
     <div class="bookmarks">
       <div v-for="bookmark in bookmarks">
         <div class="container-wrapper">
@@ -96,6 +102,14 @@ export default {
     cursor: pointer;
   }
 }
+
+.title {
+  color: #fff;
+  margin: 1rem;
+  justify-content: center;
+  display: flex;
+}
+
 .primary-color {
   color: green;
 }
