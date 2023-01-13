@@ -8,7 +8,9 @@
       "useDefineForClassFields": true,
       "noImplicitAny": false, 
       "strict": true,
-      "strictBindCallApply": true 
+      "strictBindCallApply": true,
+      "resolveJsonModule": true ,
+      "allowSyntheticDefaultImports": true
       // "isolatedModules": true,
       // "noEmit": true,
       // "jsx": "preserve",
