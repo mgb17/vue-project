@@ -17,10 +17,6 @@ export default defineComponent({
     product: {
       type: Object as PropType<Product>,
       default: {},
-      // price: {
-      //   type: Number,
-      //   default: {},
-      // },
     },
     // availability: {
     //   type: String,
@@ -51,48 +47,45 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="page">
-    <div class="container-wrapper">
-      <div class="container">
-        <div class="image-wrapper">
-          <img
-            class="first-image"
-            src="https://res.cloudinary.com/baywa-ag-p/image/upload/A2542940.jpg"
-            alt=""
+  <div class="container-wrapper">
+    <div class="container">
+      <div class="image-wrapper">
+        <img
+          class="first-image"
+          src="https://res.cloudinary.com/baywa-ag-p/image/upload/A2542940.jpg"
+          alt=""
+        />
+      </div>
+      <span v-if="product.priceOffer" class="ribbon">Angebot</span>
+      <div class="title-wrapper">
+        <h4 class="title">{{ product.title }}</h4>
+        <div v-if="product.variant" class="variant">
+          {{ product.variant }} Varianten verfügbar
+        </div>
+      </div>
+
+      <div class="price">
+        <div class="old-price-wrapper">
+          <span class="old-price">{{ product.oldPrice }} €</span>
+        </div>
+        {{ product.price }} € / Stück
+      </div>
+
+      <div class="availability">
+        <div class="info">{{ product.info }} verfügbar</div>
+        <!-- add a class to bars (low, medium or high) -->
+        <div :class="product.availability" class="bars">
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="bookmark">
+          <Bookmark
+            @click="toggleBookmark"
+            :class="{ 'primary-color': bookmarkAdded }"
           />
-        </div>
-        <span v-if="product.priceOffer" class="ribbon">Angebot</span>
-        <div class="divider"></div>
-        <div class="title-wrapper">
-          <h4 class="title">{{ product.title }}</h4>
-          <div v-if="product.variant" class="variant">
-            {{ product.variant }} Varianten verfügbar
-          </div>
-        </div>
-
-        <div class="price">
-          <div class="old-price-wrapper">
-            <span class="old-price">{{ product.oldPrice }} €</span>
-          </div>
-          {{ product.price }} € / Stück
-        </div>
-
-        <div class="availability">
-          <div class="info">{{ product.info }} verfügbar</div>
-          <!-- add a class to bars (low, medium or high) -->
-          <div :class="product.availability" class="bars">
-            <div class="bar"></div>
-          </div>
-        </div>
-        <div class="buttons">
-          <button class="bookmark">
-            <Bookmark
-              @click="toggleBookmark"
-              :class="{ 'primary-color': bookmarkAdded }"
-            />
-          </button>
-          <button class="buy">kaufen</button>
-        </div>
+        </button>
+        <button class="buy">kaufen</button>
       </div>
     </div>
   </div>
@@ -100,22 +93,22 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .container-wrapper {
-  margin: 1rem;
-  display: flex;
+  padding: 1rem;
+  height: calc(100% - 2rem);
 
   .container {
     background-color: #fff;
     box-shadow: 0px 1rem 0.5rem -1rem gray;
-    width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
+    height: 100%;
 
     .image-wrapper {
       position: relative;
       height: 15rem;
       padding: 1rem;
+      border-bottom: 1px solid #bbb;
 
       .first-image {
         position: absolute;
@@ -148,15 +141,8 @@ export default defineComponent({
       );
     }
 
-    .divider {
-      position: absolute;
-      top: 14rem;
-      width: 100%;
-      height: 1px;
-      background-color: #bbb;
-    }
-
     .title-wrapper {
+      flex: 1;
       .title {
         color: #4d4d4d;
         margin: 1rem 2rem 1rem 2rem;

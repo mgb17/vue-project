@@ -35,5 +35,4 @@ const Template: StoryFn<typeof MyProduct> = (args) => ({
       info: 'wenige',
       priceOffer: true
     },
-    
 };

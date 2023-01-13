@@ -17,7 +17,6 @@ export default {
                     info: 'wenige',
                     availability: 'medium',
                     priceOffer: true,
-                    added: false
 
                   },
                   {
@@ -29,7 +28,6 @@ export default {
                     info: 'mehrere',
                     availability: 'medium',
                     priceOffer: true,
-                    added: false
 
                   },
                   {
@@ -41,7 +39,6 @@ export default {
                     info: 'mehrere',
                     availability: 'high',
                     priceOffer: false,
-                    added: false
                   },
                   {
                     code: 4,
@@ -53,7 +50,6 @@ export default {
                     info: 'wenige',
                     availability: 'low',
                     priceOffer: false,
-                    added: false
                   },
                   {
                     code: 5,
@@ -64,7 +60,6 @@ export default {
                     info: 'wenige',
                     availability: 'low',
                     priceOffer: true,
-                    added: false
                   },
                   {
                     code: 6,
@@ -75,7 +70,6 @@ export default {
                     info: 'wenige',
                     availability: 'low',
                     priceOffer: true,
-                    added: false
                   },
                   {
                     code: 7,
@@ -86,7 +80,6 @@ export default {
                     info: 'wenige',
                     availability: 'low',
                     priceOffer: false,
-                    added: false
                   },
             ]
         };

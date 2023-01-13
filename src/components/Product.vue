@@ -14,8 +14,11 @@ export default defineComponent({
     }
   },
   computed: {
-    // added() {
-    // },
+    added() {
+      return this.$store.getters['bookmarks/bookmarks'].filter(
+        (e) => e.code === this.product.code,
+      ).length
+    },
   },
   props: {
     product: {
@@ -28,8 +31,7 @@ export default defineComponent({
       this.$store.dispatch('bookmarks/toggleBookmark', {
         product: this.product,
       })
-      ;(product.added = !product.added),
-        console.log(this.$store.getters['bookmarks/bookmarks'])
+      console.log(this.$store.getters['bookmarks/bookmarks'])
     },
   },
 })
@@ -46,7 +48,6 @@ export default defineComponent({
         />
       </div>
       <span v-if="product.priceOffer" class="ribbon">Angebot</span>
-      <div class="divider"></div>
       <div class="title-wrapper">
         <h4 class="title">{{ product.title }}</h4>
         <div v-if="product.variant" class="variant">
@@ -72,7 +73,7 @@ export default defineComponent({
         <button class="bookmark">
           <Bookmark
             @click="toggleBookmark(product)"
-            :class="{ 'primary-color': product.added }"
+            :class="{ 'primary-color': added }"
           />
         </button>
         <button class="buy">kaufen</button>
@@ -83,22 +84,22 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .container-wrapper {
-  margin: 1rem;
-  display: flex;
+  padding: 1rem;
+  height: calc(100% - 2rem);
 
   .container {
     background-color: #fff;
     box-shadow: 0px 1rem 0.5rem -1rem gray;
-    width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
+    height: 100%;
 
     .image-wrapper {
       position: relative;
       height: 15rem;
       padding: 1rem;
+      border-bottom: 1px solid #bbb;
 
       .first-image {
         position: absolute;
@@ -131,25 +132,17 @@ export default defineComponent({
       );
     }
 
-    .divider {
-      position: absolute;
-      top: 14rem;
-      width: 100%;
-      height: 1px;
-      background-color: #bbb;
-    }
-
     .title-wrapper {
+      flex: 1;
       .title {
         color: #4d4d4d;
         margin: 1rem 2rem 1rem 2rem;
         font-size: 1.1rem;
         word-wrap: break-word;
-        height: 7rem;
       }
 
       .variant {
-        margin: 1rem 2rem 0 2rem;
+        margin: 1rem 2rem 1rem 2rem;
         background-color: lightgray;
         color: gray;
         padding: 0.25rem 2rem 0.25rem 0.25rem;
