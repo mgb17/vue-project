@@ -24,10 +24,9 @@ const Template: StoryFn<typeof ProductList> = (args) => ({
   });
 
   export const Examp = Template.bind({});
-  let result = JSON.stringify(productsJSON)
+
+  let productsToParse = JSON.stringify(productsJSON)
 
   Examp.args = {
-
-    products: JSON.parse(result)
-    
+    products: JSON.parse(productsToParse)
 };

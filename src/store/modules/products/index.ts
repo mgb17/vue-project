@@ -5,11 +5,11 @@ import productsJSON from '../../../products.json'
 export default {
     namespaced: true,
     state() {
-      let result = JSON.stringify(productsJSON)
+      let productsToParse = JSON.stringify(productsJSON)
 
-        return {
-            products: JSON.parse(result)
-        };
+      return {
+          products: JSON.parse(productsToParse)
+      };
     },
     getters
 };
