@@ -99,17 +99,9 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
-.page {
-  background-color: lightgray;
-}
-.primary-color {
-  color: green;
-}
 .container-wrapper {
-  padding: 1rem;
-  //   margin: 1rem;
+  margin: 1rem;
   display: flex;
-  width: 330px;
 
   .container {
     background-color: #fff;
@@ -170,7 +162,6 @@ export default defineComponent({
         margin: 1rem 2rem 1rem 2rem;
         font-size: 1.1rem;
         word-wrap: break-word;
-        height: 7rem;
       }
 
       .variant {
@@ -290,5 +281,11 @@ export default defineComponent({
       }
     }
   }
+}
+.page {
+  background-color: lightgray;
+}
+.primary-color {
+  color: green;
 }
 </style>

@@ -82,9 +82,6 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
-.primary-color {
-  color: green;
-}
 .container-wrapper {
   margin: 1rem;
   display: flex;
@@ -268,5 +265,9 @@ export default defineComponent({
       }
     }
   }
+}
+
+.primary-color {
+  color: green;
 }
 </style>

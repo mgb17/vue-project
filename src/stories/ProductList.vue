@@ -57,8 +57,9 @@ export default defineComponent({
 
 <style scoped>
 .products {
-  display: flex;
-  width: 100vw;
+  display: grid;
+  width: 100%;
+  max-width: 1440px;
   align-items: stretch;
   flex-wrap: wrap;
 }
