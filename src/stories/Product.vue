@@ -61,11 +61,13 @@ export default defineComponent({
             alt=""
           />
         </div>
-        <span class="ribbon">Angebot</span>
+        <span v-if="product.priceOffer" class="ribbon">Angebot</span>
         <div class="divider"></div>
         <div class="title-wrapper">
           <h4 class="title">{{ product.title }}</h4>
-          <div class="variant">{{ product.variant }} Varianten verfügbar</div>
+          <div v-if="product.variant" class="variant">
+            {{ product.variant }} Varianten verfügbar
+          </div>
         </div>
 
         <div class="price">

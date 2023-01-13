@@ -26,13 +26,14 @@ const Template: StoryFn<typeof MyProduct> = (args) => ({
 
   Single.args = {
     product: {
+      code: 1,
       title: 'Sample Product 1st',
       variant: 2,
       availability: '',
       price: 123,
       oldPrice: 456,
       info: 'wenige',
-      code: 1,
+      priceOffer: true
     },
     
 };

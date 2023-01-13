@@ -10,13 +10,12 @@ export default defineComponent({
   },
   data() {
     return {
-      bookmarkAdded: Boolean,
+      // bookmarkAdded: false,
     }
   },
   computed: {
-    bookmarkAdded() {
-      return this.bookmarkAdded
-    },
+    // added() {
+    // },
   },
   props: {
     product: {
@@ -25,11 +24,11 @@ export default defineComponent({
     },
   },
   methods: {
-    toggleBookmark() {
+    toggleBookmark(product) {
       this.$store.dispatch('bookmarks/toggleBookmark', {
         product: this.product,
       })
-      ;(this.bookmarkAdded = !this.bookmarkAdded),
+      ;(product.added = !product.added),
         console.log(this.$store.getters['bookmarks/bookmarks'])
     },
   },
@@ -46,11 +45,13 @@ export default defineComponent({
           alt=""
         />
       </div>
-      <span class="ribbon">Angebot</span>
+      <span v-if="product.priceOffer" class="ribbon">Angebot</span>
       <div class="divider"></div>
       <div class="title-wrapper">
         <h4 class="title">{{ product.title }}</h4>
-        <div class="variant">{{ product.variant }} Varianten verfügbar</div>
+        <div v-if="product.variant" class="variant">
+          {{ product.variant }} Varianten verfügbar
+        </div>
       </div>
 
       <div class="price">
@@ -70,8 +71,8 @@ export default defineComponent({
       <div class="buttons">
         <button class="bookmark">
           <Bookmark
-            @click="toggleBookmark"
-            :class="{ 'primary-color': bookmarkAdded }"
+            @click="toggleBookmark(product)"
+            :class="{ 'primary-color': product.added }"
           />
         </button>
         <button class="buy">kaufen</button>

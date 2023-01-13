@@ -11,16 +11,9 @@ export default defineComponent({
   data() {
     return {
       currentPage: 1,
-      // currentPage: {
-      //   type: Number,
-      //   default: 2,
-      // },
       itemsPerPage: 4,
     }
   },
-  // props: {
-  //   products: Object,
-  // },
   computed: {
     products() {
       return this.$store.getters['products/products']
