@@ -1,17 +1,12 @@
-import MyProduct from './Product.vue';
+import MyProduct from '../../stories/Product.vue';
 import { Meta, StoryFn } from '@storybook/vue3'
 
 
 export default {
     title: 'Product',
     component: MyProduct,
-    argTypes: {
-      // onClick: {},
-      // availability: {
-      //   control: { type: 'select' },
-      //   options: ['low', 'medium', 'high'],
-      // },
-    },
+    argTypes: {},
+    
 } as Meta<typeof MyProduct>;
 
 const Template: StoryFn<typeof MyProduct> = (args) => ({

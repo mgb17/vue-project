@@ -1,6 +1,6 @@
 <script lang="ts">
-import Product from './Product.vue'
-import Pagination from './Pagination.vue'
+import Product from '../Product/Product.vue'
+import Pagination from '../Pagination/Pagination.vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -14,6 +14,9 @@ export default defineComponent({
       itemsPerPage: 4,
     }
   },
+  // props: {
+  //   products: Object,
+  // },
   computed: {
     products() {
       return this.$store.getters['products/products']
@@ -66,6 +69,7 @@ export default defineComponent({
   display: grid;
   width: 100%;
   max-width: 1440px;
+  background-color: #bbb;
 }
 
 .wish-list {

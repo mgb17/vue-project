@@ -1,12 +1,12 @@
 <script lang="ts">
-import Pagination from './components/Pagination.vue'
-import Products from './components/Products.vue'
+import Pagination from './components/Pagination/Pagination.vue'
+import ProductList from './components/ProductList/ProductList.vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   components: {
     Pagination,
-    Products,
+    ProductList,
   },
   data() {
     return {}

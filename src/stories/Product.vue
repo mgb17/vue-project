@@ -23,10 +23,6 @@ export default defineComponent({
     //   required: true,
     // },
   },
-  //   setup(props) {
-  //     props = reactive(props)
-  //     return {}
-  //   },
   methods: {
     toggleBookmark() {
       this.bookmarkAdded = !this.bookmarkAdded

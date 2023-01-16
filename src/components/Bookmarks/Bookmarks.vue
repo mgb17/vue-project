@@ -1,6 +1,6 @@
 <script lang="ts">
-import Bookmark from './icons/Bookmark.vue'
-import Product from './Product.vue'
+import Bookmark from '../icons/Bookmark.vue'
+import Product from '../Product/Product.vue'
 
 export default {
   components: {

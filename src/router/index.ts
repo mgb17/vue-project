@@ -6,21 +6,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../components/Products.vue'),
+      component: () => import('../components/ProductList/ProductList.vue'),
     },
     {
       path: '/favorites',
       name: 'favorites',
-      component: () => import('../components/Bookmarks.vue'),
+      component: () => import('../components/Bookmarks/Bookmarks.vue'), 
+      //his generates a separate chunk (Favorites.[hash].js) for this route which is lazy-loaded when the route is visited.
     }
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
   ]
 })
 

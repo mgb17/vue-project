@@ -1,6 +1,6 @@
 <script lang="ts">
-import ArrowLeft from './icons/ArrowLeft.vue'
-import ArrowRight from './icons/ArrowRight.vue'
+import ArrowLeft from '../icons/ArrowLeft.vue'
+import ArrowRight from '../icons/ArrowRight.vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -13,10 +13,6 @@ export default defineComponent({
   },
   props: {
     currentPage: Number,
-    // currentPage: {
-    //   type: Number,
-    //   default: 3,
-    // },
     totalPageNumber: Number,
   },
   methods: {

@@ -1,6 +1,6 @@
 import ProductList from './ProductList.vue';
 import { Meta, StoryFn } from '@storybook/vue3'
-import productsJSON from '../products.json'
+import productsJSON from '../../products.json'
 
 
 export default {
@@ -23,10 +23,10 @@ const Template: StoryFn<typeof ProductList> = (args) => ({
     template: '<product-list v-bind="args" />',
   });
 
-  export const Examp = Template.bind({});
+export const Examp = Template.bind({});
 
-  let productsToParse = JSON.stringify(productsJSON)
+let productsToParse = JSON.stringify(productsJSON)
 
-  Examp.args = {
-    products: JSON.parse(productsToParse)
+Examp.args = {
+  products: JSON.parse(productsToParse)
 };
