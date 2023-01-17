@@ -11,7 +11,7 @@ export default defineComponent({
   data() {
     return {
       currentPage: 1,
-      itemsPerPage: 4,
+      itemsPerPage: 1,
     }
   },
   // props: {
@@ -69,7 +69,7 @@ export default defineComponent({
   display: grid;
   width: 100%;
   max-width: 1440px;
-  background-color: #bbb;
+  background-color: rgb(95, 115, 194);
 }
 
 .wish-list {

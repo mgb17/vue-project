@@ -68,5 +68,65 @@
     "info": "wenige",
     "availability": "low",
     "priceOffer": false
+  },
+  {
+    "code": 8,
+    "title": "GARDENA combisystem-Vertikutier-Boy asdasdasd 8th",
+    "variant": 0,
+    "price": "84,99",
+    "oldPrice": "94,95",
+    "info": "wenige",
+    "availability": "low",
+    "priceOffer": false
+  },
+  {
+    "code": 9,
+    "title": "GARDENA combisystem-Vertikutier-Boy asdasdasd 9th",
+    "variant": 0,
+    "price": "84,99",
+    "oldPrice": "94,95",
+    "info": "wenige",
+    "availability": "low",
+    "priceOffer": false
+  },
+  {
+    "code": 10,
+    "title": "GARDENA combisystem-Vertikutier-Boy asdasdasd 10th",
+    "variant": 0,
+    "price": "84,99",
+    "oldPrice": "94,95",
+    "info": "wenige",
+    "availability": "low",
+    "priceOffer": false
+  },
+  {
+    "code": 11,
+    "title": "GARDENA combisystem-Vertikutier-Boy asdasdasd 11th",
+    "variant": 0,
+    "price": "84,99",
+    "oldPrice": "94,95",
+    "info": "wenige",
+    "availability": "low",
+    "priceOffer": false
+  },
+  {
+    "code": 12,
+    "title": "GARDENA combisystem-Vertikutier-Boy asdasdasd 12th",
+    "variant": 0,
+    "price": "84,99",
+    "oldPrice": "94,95",
+    "info": "wenige",
+    "availability": "low",
+    "priceOffer": false
+  },
+  {
+    "code": 13,
+    "title": "GARDENA combisystem-Vertikutier-Boy asdasdasd 13th",
+    "variant": 0,
+    "price": "84,99",
+    "oldPrice": "94,95",
+    "info": "wenige",
+    "availability": "low",
+    "priceOffer": false
   }
 ]

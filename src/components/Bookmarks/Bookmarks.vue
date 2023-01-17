@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <div class="">
+  <div class="bookmark-wrapper">
     <router-link to="/" class="home">
       <button>Home</button>
     </router-link>
@@ -39,6 +39,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.bookmark-wrapper {
+  background-color: rgb(95, 115, 194);
+}
 .home {
   margin: 1rem;
   position: fixed;
@@ -55,7 +58,7 @@ export default {
 
 .title {
   color: #fff;
-  margin: 1rem;
+  padding: 1rem;
   justify-content: center;
   display: flex;
 }

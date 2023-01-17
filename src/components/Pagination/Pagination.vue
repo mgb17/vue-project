@@ -9,11 +9,33 @@ export default defineComponent({
     ArrowRight,
   },
   data() {
-    return {}
+    return {
+      middlePages: 3,
+    }
   },
   props: {
     currentPage: Number,
     totalPageNumber: Number,
+  },
+  computed: {
+    pages() {
+      if (this.totalPageNumber && this.currentPage) {
+        // limitations: showedPages, add at least +1,
+        const showedPages = Math.min(this.middlePages, this.totalPageNumber - 2) // except for 1st and last page, limit max page number
+
+        let add = this.currentPage - Math.ceil(showedPages / 2) // distance to current page to update pages (add to 1)
+        // ceil to have current page in the middle
+
+        add = Math.max(add, 1) // at least +1
+
+        add = Math.min(add, this.totalPageNumber - 1 - showedPages) //for higher current page numbers => add max (total - showedPages)
+
+        // console.log(add)
+        // return array from the number of elements as numbers in showedPages with spread operator.
+        // console.log([...Array(showedPages)]);
+        return [...Array(showedPages)].map((n, i) => i + 1 + add) // +1 for skipping 0 => starting from 1
+      }
+    },
   },
   methods: {
     changePage(e: HTMLDivElement) {
@@ -47,9 +69,22 @@ export default defineComponent({
   <div class="container">
     <ArrowLeft @click="previousPage" />
     <div class="page-wrapper">
-      <div v-for="n in totalPageNumber" @click="changePage" class="page-box">
+      <div @click="changePage" class="page-box" for="">
+        <label :class="{ 'primary-color': currentPage === 1 }" for="">
+          {{ 1 }}
+        </label>
+      </div>
+      <div v-for="n in pages" @click="changePage" class="page-box">
         <label :class="{ 'primary-color': n === currentPage }" id="" for="">
           {{ n }}
+        </label>
+      </div>
+      <div @click="changePage" class="page-box" for="">
+        <label
+          :class="{ 'primary-color': currentPage === totalPageNumber }"
+          for=""
+        >
+          {{ totalPageNumber }}
         </label>
       </div>
     </div>
