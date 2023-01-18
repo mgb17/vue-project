@@ -8,6 +8,8 @@ export default {
     argTypes: {
       onClick: {},
     },
+    decorators: [() => ({ template: '<div style="margin-top: 20em;"><story/></div>' })],
+
 } as Meta<typeof MyPagination>;
 
 const Template: StoryFn<typeof MyPagination> = (args) => ({

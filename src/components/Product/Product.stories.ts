@@ -2,12 +2,11 @@ import MyProduct from './Product.vue';
 import { Meta, StoryFn } from '@storybook/vue3'
 
 
-
-
 export default {
     title: 'Product',
     component: MyProduct,
     argTypes: {},
+    decorators: [() => ({ template: '<div style="width: 20em; background-color: #bbb;"><story/></div>' })],
 
 } as Meta<typeof MyProduct>;
 
