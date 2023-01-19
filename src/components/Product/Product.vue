@@ -14,11 +14,11 @@ export default defineComponent({
     }
   },
   computed: {
-    // added() {
-    //   return this.$store.getters['bookmarks/bookmarks'].filter(
-    //     (e) => e.code === this.product.code,
-    //   ).length
-    // },
+    added() {
+      return this.$store.getters['bookmarks/bookmarks'].filter(
+        (e) => e.code === this.product.code,
+      ).length
+    },
   },
   props: {
     product: {
@@ -27,12 +27,12 @@ export default defineComponent({
     },
   },
   methods: {
-    // toggleBookmark(product) {
-    //   this.$store.dispatch('bookmarks/toggleBookmark', {
-    //     product: this.product,
-    //   })
-    //   console.log(this.$store.getters['bookmarks/bookmarks'])
-    // },
+    toggleBookmark(product) {
+      this.$store.dispatch('bookmarks/toggleBookmark', {
+        product: this.product,
+      })
+      console.log(this.$store.getters['bookmarks/bookmarks'])
+    },
   },
 })
 </script>

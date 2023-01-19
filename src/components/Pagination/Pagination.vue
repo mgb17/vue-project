@@ -33,7 +33,8 @@ export default defineComponent({
         // console.log(add)
         // return array from the number of elements as numbers in showedPages with spread operator.
         // console.log([...Array(showedPages)]);
-        return [...Array(showedPages)].map((n, i) => i + 1 + add) // +1 for skipping 0 => starting from 1
+        return [...Array(showedPages)].map((n, i) => i + 1 + add) //spread operator
+        // +1 for skipping 0 => starting from 1
       }
     },
   },

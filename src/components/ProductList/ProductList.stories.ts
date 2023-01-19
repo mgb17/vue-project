@@ -13,6 +13,8 @@ export default {
     //   options: ['low', 'medium', 'high'],
     // },
     },
+    // mock
+    
 } as Meta<typeof ProductList>;
 
 const Template: StoryFn<typeof ProductList> = (args) => ({
