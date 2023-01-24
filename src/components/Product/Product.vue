@@ -134,15 +134,17 @@ export default defineComponent({
 
     .title-wrapper {
       flex: 1;
+      padding: 0 1rem;
+
       .title {
         color: #4d4d4d;
-        margin: 1rem 2rem 1rem 2rem;
         font-size: 1.1rem;
         word-wrap: break-word;
       }
 
       .variant {
-        margin: 1rem 2rem 1rem 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         background-color: lightgray;
         color: gray;
         padding: 0.25rem 2rem 0.25rem 0.25rem;
@@ -151,10 +153,10 @@ export default defineComponent({
     }
 
     .price {
-      padding: 0 2rem;
+      padding: 0 1rem;
       font-weight: bold;
       color: #4d4d4d;
-      font-size: 1.25rem;
+      font-size: 1rem;
       margin-bottom: 1rem;
       display: flex;
 

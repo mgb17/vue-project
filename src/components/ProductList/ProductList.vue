@@ -11,7 +11,7 @@ export default defineComponent({
   data() {
     return {
       currentPage: 1,
-      itemsPerPage: 1,
+      itemsPerPage: 4,
     }
   },
   // props: {
