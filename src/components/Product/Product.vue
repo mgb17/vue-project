@@ -9,9 +9,7 @@ export default defineComponent({
     Bookmark,
   },
   data() {
-    return {
-      // bookmarkAdded: false,
-    }
+    return {}
   },
   computed: {
     added() {
