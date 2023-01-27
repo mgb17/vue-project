@@ -12,11 +12,11 @@ export default defineComponent({
     return {}
   },
   computed: {
-    // added() {
-    //   return this.$store.getters['bookmarks/bookmarks'].filter(
-    //     (e) => e.code === this.product.code,
-    //   ).length
-    // },
+    added() {
+      return this.$store.getters['bookmarks/bookmarks'].filter(
+        (e) => e.code === this.product.code,
+      ).length
+    },
   },
   props: {
     product: {

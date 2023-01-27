@@ -11,6 +11,7 @@ export default defineComponent({
   data() {
     return {
       middlePages: 3,
+      counter: 0,
     }
   },
   props: {
@@ -52,6 +53,7 @@ export default defineComponent({
       ) {
         let page = this.currentPage + 1
         this.$emit('changePage', page)
+        return this.counter++
       }
     },
     previousPage() {
@@ -68,10 +70,9 @@ export default defineComponent({
 
 <template>
   <div class="container">
+    <a href="">Counter is: {{ counter }}</a>
     <ArrowLeft @click="previousPage" />
-
     <button>click me</button>
-
     <div class="page-wrapper">
       <div @click="changePage" class="page-box" for="">
         <label :class="{ 'primary-color': currentPage === 1 }" for="">
@@ -79,7 +80,12 @@ export default defineComponent({
         </label>
       </div>
       <div v-for="n in pages" @click="changePage" class="page-box">
-        <label :class="{ 'primary-color': n === currentPage }" id="" for="">
+        <label
+          data-type="page"
+          :class="{ 'primary-color': n === currentPage }"
+          id=""
+          for=""
+        >
           {{ n }}
         </label>
       </div>
@@ -92,7 +98,7 @@ export default defineComponent({
         </label>
       </div>
     </div>
-    <ArrowRight @click="nextPage" />
+    <ArrowRight data-type="increment" @click="nextPage"></ArrowRight>
   </div>
 </template>
 

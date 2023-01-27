@@ -43,9 +43,6 @@ const Template: StoryFn<typeof MyProduct> = (args) => ({
   // export const store = Template.bind({})
 
 
-
-
-  
   Single.args = {
     product: {
       code: 1,
@@ -57,5 +54,4 @@ const Template: StoryFn<typeof MyProduct> = (args) => ({
       info: 'wenige',
       priceOffer: true
     },
-  
 };
