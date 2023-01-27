@@ -6,6 +6,6 @@ export default defineConfig({
  plugins: [vue()],
  test: {
     // include: ["src/**/*.{js,ts}"],
-    globals: true,
+    // globals: true,
   },
 })

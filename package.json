@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "vitest --dom"
+    "test": "vitest --dom",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@storybook/testing-vue3": "^0.0.2",
@@ -32,6 +33,8 @@
     "@storybook/vue3": "^6.5.15",
     "@testing-library/vue": "^6.6.1",
     "@vitejs/plugin-vue": "^3.2.0",
+    "@vitest/coverage-c8": "^0.28.2",
+    "@vitest/coverage-istanbul": "^0.28.2",
     "@vue/test-utils": "^2.2.7",
     "babel-jest": "^29.3.1",
     "babel-loader": "^8.3.0",

@@ -39,7 +39,7 @@ export default defineComponent({
     },
   },
   methods: {
-    changePage(e: HTMLDivElement) {
+    changePage(e) {
       let clickedPage = parseInt(e.target.innerHTML)
       this.$emit('changePage', clickedPage)
     },
@@ -69,6 +69,9 @@ export default defineComponent({
 <template>
   <div class="container">
     <ArrowLeft @click="previousPage" />
+
+    <button>click me</button>
+
     <div class="page-wrapper">
       <div @click="changePage" class="page-box" for="">
         <label :class="{ 'primary-color': currentPage === 1 }" for="">
