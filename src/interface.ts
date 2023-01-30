@@ -1,16 +1,16 @@
 
-interface Product {
+interface ProductType {
 // [x: string]: any
     code: Number,
     title: String
-    variant: String
-    price: String
+    variant: Number
+    price: Number
     info: String
     availability: String
-    oldPrice: String,
+    oldPrice: Number,
     priceOffer: Boolean
   }
 
   export {
-    Product,
+    ProductType,
   }

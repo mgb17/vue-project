@@ -2,7 +2,7 @@
 import Bookmark from '../icons/Bookmark.vue'
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import { Product } from '../../interface'
+import { ProductType } from '../../interface'
 
 export default defineComponent({
   components: {
@@ -20,7 +20,7 @@ export default defineComponent({
   },
   props: {
     product: {
-      type: Object as PropType<Product>,
+      type: Object as PropType<ProductType>,
       default: {},
     },
   },

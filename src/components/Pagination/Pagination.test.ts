@@ -7,30 +7,36 @@ test("mount component",async()=>{
    expect(Pagination).toBeTruthy();
 
    const wrapper = mount(Pagination, {
-   //    propsData: {
-   //       currentPage: 1
-   //  }
+      props: {
+         currentPage: 2,
+         totalPageNumber: 10,
+         
+      }
    });
+
+   console.log(wrapper.text())
    
-   expect(wrapper.text()).toContain("1"); // just the first pagination number
+   expect(wrapper.text()).toContain("5"); 
 
    expect(wrapper.html()).toContain("click me");
 
-   // increment
-   // await wrapper.find('[data-type="increment"]').trigger('click')
-   // expect(wrapper.html()).toContain("Counter is: 0")
-
-
    // expect(wrapper.find('[data-type="page"]')).toHaveStyle(`background-color: green`)
-   //expect(wrapper.text()).toMatchSnapshot();
 })
 
 describe('Counter', () => {
-   const wrapper = mount(Pagination)
+   const wrapper = mount(Pagination, {
+      props: {
+         currentPage: 2
+      }
+   });
 
+   // increment
    it('should incerement correctly', async () => {
-      await wrapper.find('[data-type="increment"]').trigger('click')
-      expect(wrapper.html()).toContain("Counter is: 0")
+
+      // console.log(wrapper.find('[data-type="increment"]').html())
+
+      await wrapper.find('[data-type="increment"]').trigger('click') 
+      expect(wrapper.html()).toContain("Counter is: 1")
 
    })})
    
@@ -40,7 +46,6 @@ test("text of button", async () => {
     expect(Pagination).toBeTruthy();
  
     const wrapper = mount(Pagination);
-   //  await wrapper.find("button").trigger("click")
     expect(wrapper.find("button").text()).toEqual("click me")
  })
 

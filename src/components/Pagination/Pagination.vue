@@ -10,7 +10,7 @@ export default defineComponent({
   },
   data() {
     return {
-      middlePages: 3,
+      middlePages: 4,
       counter: 0,
     }
   },
@@ -72,7 +72,9 @@ export default defineComponent({
   <div class="container">
     <a href="">Counter is: {{ counter }}</a>
     <ArrowLeft @click="previousPage" />
+
     <button>click me</button>
+
     <div class="page-wrapper">
       <div @click="changePage" class="page-box" for="">
         <label :class="{ 'primary-color': currentPage === 1 }" for="">
@@ -98,7 +100,9 @@ export default defineComponent({
         </label>
       </div>
     </div>
-    <ArrowRight data-type="increment" @click="nextPage"></ArrowRight>
+    <div>
+      <div data-type="increment" @click="nextPage()">asd</div>
+    </div>
   </div>
 </template>
 
